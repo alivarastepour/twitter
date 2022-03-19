@@ -1,0 +1,11 @@
+@import "./colorVariables.scss";
+
+.logoS {
+  height: 3rem;
+  color: $tw-color;
+}
+.logoM {
+  max-height: 380px;
+  height: 50%;
+  color: $wh-color;
+}
