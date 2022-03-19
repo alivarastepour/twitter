@@ -4,7 +4,7 @@ type TcomponentProps = {
   size: string;
 };
 
-const LogoS = ({ size }: TcomponentProps) => {
+const Logo = ({ size }: TcomponentProps) => {
   return (
     <>
       <svg
@@ -20,4 +20,4 @@ const LogoS = ({ size }: TcomponentProps) => {
     </>
   );
 };
-export default LogoS;
+export default Logo;
