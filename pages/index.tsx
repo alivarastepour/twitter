@@ -1,4 +1,14 @@
+import Head from "next/head";
+import Mainpage from "../Components/Mainpage/index";
+
 const Home = () => {
-  return <>twitter</>;
+  return (
+    <>
+      <Head>
+        <title>Twitter. it&apos;s what&apos;s happening / Twitter</title>
+      </Head>
+      <Mainpage />
+    </>
+  );
 };
 export default Home;
