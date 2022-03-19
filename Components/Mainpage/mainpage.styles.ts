@@ -15,7 +15,31 @@ export const Wrapper = styled.div`
     display: grid;
     place-content: center;
   }
+
   .mp-fl-2 {
     width: 44.5%;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 90px;
+
+    .ft-fl-ch {
+      margin: 10px 25px 0 0;
+      font-family: sans-serif;
+      font-size: 0.95rem;
+
+      .ch-a {
+        color: rgb(83, 100, 113);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 `;
