@@ -42,4 +42,23 @@ export const Wrapper = styled.div`
       }
     }
   }
+
+  .ct-ch {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .ct-ch-1 {
+    margin: 50px auto auto 40px;
+  }
+  
+  .ct-ch-2{
+    font-size: 5rem;
+    margin: 80px auto auto 40px;
+  }
+  
+  .ct-ch-3{
+    font-size: 2.3rem;
+    margin: 80px auto auto 40px;
+  }
 `;
