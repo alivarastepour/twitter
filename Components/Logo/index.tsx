@@ -1,6 +1,10 @@
 import styles from "../../styles/logo.module.scss";
 
-const LogoS = ({ size }) => {
+type TcomponentProps = {
+  size: string;
+};
+
+const LogoS = ({ size }: TcomponentProps) => {
   return (
     <>
       <svg
