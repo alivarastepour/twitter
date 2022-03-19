@@ -1,14 +1,11 @@
 import Logo from "../Logo";
 import { Wrapper } from "./mainpage.styles";
+import HeroImage from "./HeroImage";
 const Mainpage = () => {
   return (
     <>
       <Wrapper>
-        <div className="mp-fl-1">
-          <div>
-            <Logo size="M" />
-          </div>
-        </div>
+        <HeroImage/>
         <div className="mp-fl-2">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, ut?
           Provident doloribus quod illo quia alias ipsam suscipit in, omnis

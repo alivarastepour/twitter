@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Mainpage from "../Components/Mainpage/index";
+import Mainpage from "../Components/Mainpage";
 
 const Home = () => {
   return (
