@@ -1,0 +1,66 @@
+.mainPageButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  height: 48px;
+  border: 1px rgb(207, 217, 222) solid;
+  border-radius: 28px;
+
+
+  .text {
+    font-size: 1.0rem;
+  }
+
+  .logo {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 8px;
+  }
+
+
+  &:hover {
+    transition: 0.2s;
+    cursor: pointer;
+  }
+
+  &:not(:hover) {
+    transition: 0.2s;
+  }
+}
+
+.whiteButton {
+  &:hover {
+    background-color: rgb(230, 230, 230);
+  }
+
+  &:not(:hover) {
+    background-color: white;
+  }
+}
+
+.blueButton {
+  background-color: rgb(29, 155, 240);
+  color: white;
+
+  &:hover {
+    background-color: rgb(26, 140, 216);
+  }
+
+  &:not(:hover) {
+    background-color: rgb(29, 155, 240);
+  }
+}
+
+.whiteBlueButton {
+  color: rgb(29, 155, 240);
+  font-size: 1.1rem;
+  &:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+  }
+
+  &:not(:hover) {
+    background-color: white;
+  }
+}
