@@ -5,7 +5,13 @@ export const Wrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
+
+  @media only screen and (max-width: 1015px) {
+    & {
+      flex-wrap: wrap-reverse;
+      justify-content: center;
+    }
+  }
 
   .mp-fl-1 {
     width: 55%;
@@ -15,6 +21,12 @@ export const Wrapper = styled.div`
     background-position: center;
     display: grid;
     place-content: center;
+    @media only screen and (max-width: 1015px) {
+      & {
+        width: 100%;
+        height: 440px;
+      }
+    }
   }
 
   .mp-fl-2 {
@@ -22,6 +34,17 @@ export const Wrapper = styled.div`
     padding-left: 40px;
     flex-grow: 2;
     flex-shrink: 0;
+    @media only screen and (max-width: 1015px) {
+      & {
+        flex-grow: 0;
+        margin-bottom: 50px;
+      }
+    }
+    @media only screen and (max-width: 615px) {
+      & {
+        margin-left: 10px;
+      }
+    }
   }
 
   .ct-ch {
@@ -36,11 +59,22 @@ export const Wrapper = styled.div`
   .ct-ch-2 {
     font-size: 4rem;
     margin-top: 80px;
+    @media only screen and (max-width: 615px) {
+      & {
+        font-size: 2.5rem;
+      }
+    }
   }
 
   .ct-ch-3 {
     font-size: 2.3rem;
     margin-top: 80px;
+    @media only screen and (max-width: 615px) {
+      & {
+        margin-top: 40px;
+        font-size: 1.8rem;
+      }
+    }
   }
 
   .ct-ch-4 {
