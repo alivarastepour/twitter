@@ -5,42 +5,23 @@ export const Wrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 
   .mp-fl-1 {
-    width: 55.5%;
+    width: 55%;
     height: 925px;
     background-image: url("/lohp_en_1302x955.png");
+    background-color: rgb(29, 155, 240);
     background-position: center;
     display: grid;
     place-content: center;
   }
 
   .mp-fl-2 {
-    width: 44.5%;
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px 90px;
-
-    .ft-fl-ch {
-      margin: 10px 25px 0 0;
-      font-family: sans-serif;
-      font-size: 0.95rem;
-
-      .ch-a {
-        color: rgb(83, 100, 113);
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
+    padding-right: 40px;
+    padding-left: 40px;
+    flex-grow: 2;
+    flex-shrink: 0;
   }
 
   .ct-ch {
@@ -49,17 +30,17 @@ export const Wrapper = styled.div`
   }
 
   .ct-ch-1 {
-    margin: 50px auto auto 40px;
+    margin-top: 50px;
   }
 
   .ct-ch-2 {
-    font-size: 5rem;
-    margin: 80px auto auto 40px;
+    font-size: 4rem;
+    margin-top: 80px;
   }
 
   .ct-ch-3 {
     font-size: 2.3rem;
-    margin: 80px auto auto 40px;
+    margin-top: 80px;
   }
 
   .ct-ch-4 {
@@ -67,9 +48,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-around;
     height: 250px;
-    margin: 40px auto auto 40px;
-    
-
+    margin-top: 40px;
 
     .ct-ch-fl-5 {
       width: 350px;
@@ -85,16 +64,39 @@ export const Wrapper = styled.div`
         }
       }
     }
-
   }
-  .ct-ch-5{
+  .ct-ch-5 {
     display: flex;
     flex-direction: column;
     height: 100px;
     justify-content: space-between;
-    margin: 80px auto auto 40px;
-    .text-q{
+    margin-top: 80px;
+    .text-q {
       font-size: 1.3rem;
+    }
+  }
+`;
+export const Content = styled.div`
+  .footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 4vw;
+
+    .ft-fl-ch {
+      margin: 10px 15px 0 0;
+      font-family: sans-serif;
+      font-size: 0.8rem;
+
+      .ch-a {
+        color: rgb(83, 100, 113);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 `;
