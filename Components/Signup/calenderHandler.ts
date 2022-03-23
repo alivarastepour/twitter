@@ -11,20 +11,6 @@ export const YEAR = [
   2019, 2020, 2021, 2022,
 ].reverse();
 
-// export const MONTH = [
-//   { month: "January", dayCount: 31 },
-//   { month: "February", dayCount: 28 },
-//   { month: "March", dayCount: 31 },
-//   { month: "April", dayCount: 30 },
-//   { month: "May", dayCount: 31 },
-//   { month: "June", dayCount: 30 },
-//   { month: "July", dayCount: 31 },
-//   { month: "August", dayCount: 31 },
-//   { month: "September", dayCount: 30 },
-//   { month: "October", dayCount: 31 },
-//   { month: "November", dayCount: 30 },
-//   { month: "December", dayCount: 31 },
-// ];
 export const MONTH = [
   "January",
   "February",
@@ -39,11 +25,11 @@ export const MONTH = [
   "November",
   "December",
 ];
-export const DAYS = [
+const DAYS = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
   23, 24, 25, 26, 27, 28, 29, 30, 31,
 ];
-export const isLeapYear = (year: number) => {
+const isLeapYear = (year: number) => {
   return (0 == year % 4 && 0 != year % 100) || 0 == year % 400;
 };
 
@@ -74,5 +60,3 @@ export const calculateDaysCount = (year: number | string, month: string) => {
     }
   }
 };
-
-export const dayMonth = new Map(Object.entries(MONTH));
