@@ -1,11 +1,17 @@
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select as NativeSelect,
-} from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import NativeSelect from "@mui/material/Select";
 
-const Select = ({ label, items, width, value, setValue }) => {
+type TselectProps = {
+  label: string;
+  items: number[] | string[];
+  width: number;
+  value: number | string;
+  setValue: Function;
+};
+
+const Select = ({ label, items, width, value, setValue }: TselectProps) => {
   const labelID = `${label}-label`;
   return (
     <FormControl sx={{ width: width }}>

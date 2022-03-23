@@ -1,4 +1,4 @@
-export const YEAR = [
+export const YEAR: number[] = [
   1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914,
   1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927,
   1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940,
@@ -11,7 +11,7 @@ export const YEAR = [
   2019, 2020, 2021, 2022,
 ].reverse();
 
-export const MONTH = [
+export const MONTH: string[] = [
   "January",
   "February",
   "March",
@@ -25,15 +25,29 @@ export const MONTH = [
   "November",
   "December",
 ];
-const DAYS = [
+
+const fullMonth: string[] = [
+  "January",
+  "March",
+  "May",
+  "July",
+  "August",
+  "October",
+  "December",
+];
+
+const DAYS: number[] = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
   23, 24, 25, 26, 27, 28, 29, 30, 31,
 ];
-const isLeapYear = (year: number) => {
+const isLeapYear = (year: number): boolean => {
   return (0 == year % 4 && 0 != year % 100) || 0 == year % 400;
 };
 
-export const calculateDaysCount = (year: number | string, month: string) => {
+export const calculateDaysCount = (
+  year: number | string,
+  month: string
+): number[] => {
   if (typeof year === "string" || month === "") {
     return DAYS;
   } else {
@@ -44,15 +58,7 @@ export const calculateDaysCount = (year: number | string, month: string) => {
         return DAYS.slice(0, 28);
       }
     } else {
-      if (
-        month === "January" ||
-        month === "March" ||
-        month === "May" ||
-        month === "July" ||
-        month === "August" ||
-        month === "October" ||
-        month === "December"
-      ) {
+      if (fullMonth.includes(month)) {
         return DAYS;
       } else {
         return DAYS.slice(0, 30);
