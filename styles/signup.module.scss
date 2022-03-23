@@ -1,0 +1,45 @@
+.dialogHeader {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.create {
+  font-size: 1.6rem;
+}
+
+.formContainer {
+  margin-top: 30px;
+}
+
+.date {
+  margin-bottom: 5px;
+}
+
+.dateNotice {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.dateContainer {
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: space-around;
+}
+
+.signupContainer {
+  display: flex;
+  justify-content: center;
+  width: 900px;
+  margin-bottom: 30px;
+}
+
+.signupButton {
+  background: black;
+  color: white;
+  outline: none;
+  border: none;
+  width: 95%;
+  height: 40px;
+  border-radius: 30px;
+  font-size: 1rem;
+}
