@@ -38,7 +38,7 @@
 }
 
 .signupButton {
-  background: black;
+  background-color: #000;
   color: white;
   outline: none;
   border: none;
@@ -46,6 +46,11 @@
   height: 40px;
   border-radius: 30px;
   font-size: 1rem;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 }
 
 .select {

@@ -16,6 +16,7 @@ import Select from "../Select";
 import { YEAR, MONTH, calculateDaysCount } from "./calenderHandler";
 
 import styles from "../../styles/signup.module.scss";
+import { validInfo } from "./signup.handlers";
 
 const Signup = () => {
   const [year, setYear] = useState("");
@@ -106,7 +107,10 @@ const Signup = () => {
         </DialogContent>
         <DialogActions>
           <div className={styles.signupContainer}>
-            <button className={`font font-b ${styles.signupButton}`}>
+            <button
+              className={`font font-b ${styles.signupButton}`}
+              disabled={validInfo()}
+            >
               Signup
             </button>
           </div>
