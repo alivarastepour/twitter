@@ -1,6 +1,7 @@
 .dialogHeader {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .create {
@@ -24,6 +25,9 @@
   display: flex;
   margin-bottom: 40px;
   justify-content: space-around;
+  @media only screen and (max-width: 565px) {
+    flex-direction: column;
+  }
 }
 
 .signupContainer {
@@ -42,4 +46,13 @@
   height: 40px;
   border-radius: 30px;
   font-size: 1rem;
+}
+
+.select {
+  @media only screen and (max-width: 565px) {
+    div {
+      width: 100%;
+    }
+    margin-bottom: 20px;
+  }
 }

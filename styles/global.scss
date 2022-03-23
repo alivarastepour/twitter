@@ -28,3 +28,12 @@ body {
 .font-l {
   font-weight: 300;
 }
+
+@media only screen and (max-width: 720px) {
+  .css-vqn8zl-MuiPaper-root-MuiDialog-paper {
+    max-height: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0;
+  }
+}

@@ -30,17 +30,25 @@ const Signup = () => {
           sx: {
             width: "700px",
             borderRadius: "15px",
+            "@media only screen and (max-width: 720px)": {
+              width: "100vw",
+              height: "100vh",
+            },
           },
         }}
       >
         <DialogTitle>
           <div className={styles.dialogHeader}>
-            <IconButton sx={{ marginRight: "200px" }}>
-              <Link href="/" passHref>
-                <CloseIcon />
-              </Link>
-            </IconButton>
-            <Logo size="S" />
+            <div style={{ marginRight: "37%" }}>
+              <IconButton>
+                <Link href="/" passHref>
+                  <CloseIcon />
+                </Link>
+              </IconButton>
+            </div>
+            <div>
+              <Logo size="S" />
+            </div>
           </div>
         </DialogTitle>
         <DialogTitle>
@@ -66,7 +74,7 @@ const Signup = () => {
               this account is for a business, a pet, or something else.
             </div>
             <div className={styles.dateContainer}>
-              <div>
+              <div className={styles.select}>
                 <Select
                   items={MONTH}
                   label="Month"
@@ -75,7 +83,7 @@ const Signup = () => {
                   width={250}
                 />
               </div>
-              <div>
+              <div className={styles.select}>
                 <Select
                   items={calculateDaysCount(year, month)}
                   label="Day"
@@ -84,7 +92,7 @@ const Signup = () => {
                   width={120}
                 />
               </div>
-              <div>
+              <div className={styles.select}>
                 <Select
                   items={YEAR}
                   label="Year"
