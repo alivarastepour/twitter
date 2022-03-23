@@ -47,4 +47,32 @@ export const isLeapYear = (year: number) => {
   return (0 == year % 4 && 0 != year % 100) || 0 == year % 400;
 };
 
+export const calculateDaysCount = (year: number | string, month: string) => {
+  if (typeof year === "string" || month === "") {
+    return DAYS;
+  } else {
+    if (month === "February") {
+      if (isLeapYear(year)) {
+        return DAYS.slice(0, 29);
+      } else {
+        return DAYS.slice(0, 28);
+      }
+    } else {
+      if (
+        month === "January" ||
+        month === "March" ||
+        month === "May" ||
+        month === "July" ||
+        month === "August" ||
+        month === "October" ||
+        month === "December"
+      ) {
+        return DAYS;
+      } else {
+        return DAYS.slice(0, 30);
+      }
+    }
+  }
+};
+
 export const dayMonth = new Map(Object.entries(MONTH));

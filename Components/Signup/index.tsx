@@ -15,14 +15,19 @@ import Logo from "../Logo";
 import { Wrapper } from "./signup.styles";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { DAYS, isLeapYear, YEAR, MONTH } from "./calenderHandler";
+import {
+  DAYS,
+  isLeapYear,
+  YEAR,
+  MONTH,
+  calculateDaysCount,
+} from "./calenderHandler";
 import Select from "../Select";
 
 const Signup = () => {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
-  console.log(day, month, year);
 
   return (
     <>
@@ -84,7 +89,7 @@ const Signup = () => {
                 </div>
                 <div>
                   <Select
-                    items={DAYS}
+                    items={calculateDaysCount(year, month)}
                     label="Day"
                     value={day}
                     setValue={setDay}
