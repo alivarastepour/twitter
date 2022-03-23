@@ -1,12 +1,8 @@
 import {
-  Button,
   DialogActions,
   DialogContent,
   DialogTitle,
-  FormControl,
   IconButton,
-  InputLabel,
-  MenuItem,
   TextField,
 } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
@@ -14,16 +10,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../Logo";
 import { Wrapper } from "./signup.styles";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import {
-  DAYS,
-  isLeapYear,
-  YEAR,
-  MONTH,
-  calculateDaysCount,
-} from "./calenderHandler";
+import { useState } from "react";
+import { YEAR, MONTH, calculateDaysCount } from "./calenderHandler";
 import Select from "../Select";
-
+import styles from "../../styles/signup.module.scss";
 const Signup = () => {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
@@ -42,7 +32,7 @@ const Signup = () => {
           }}
         >
           <DialogTitle>
-            <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <div className={styles.salam}>
               <IconButton sx={{ marginRight: "200px" }}>
                 <Link href="/" passHref>
                   <CloseIcon />
@@ -60,24 +50,42 @@ const Signup = () => {
             <div
               style={{
                 // width: "600px",
-                display: "flex",
-                flexDirection: "column",
+                // display: "flex",
+                // flexDirection: "column",
                 marginTop: "30px",
               }}
             >
               <div>
-                <TextField fullWidth label="name" />
+                <TextField
+                  fullWidth
+                  label="Name"
+                  sx={{ marginBottom: "30px" }}
+                />
               </div>
               <div>
-                <TextField fullWidth label="phone" />
+                <TextField
+                  fullWidth
+                  label="Phone"
+                  sx={{ marginBottom: "30px" }}
+                />
               </div>
-              <div>use email instead</div>
-              <div>Date of birth</div>
-              <div>
+              <div className="font font-b" style={{ marginBottom: "5px" }}>
+                Date of birth
+              </div>
+              <div
+                className="font font-l"
+                style={{ fontSize: "0.9rem", marginBottom: "15px" }}
+              >
                 This will not be shown publicly. Confirm your own age, even if
                 this account is for a business, a pet, or something else.
               </div>
-              <div style={{ display: "flex" }}>
+              <div
+                style={{
+                  display: "flex",
+                  marginBottom: "40px",
+                  justifyContent: "space-around",
+                }}
+              >
                 <div>
                   <Select
                     items={MONTH}
@@ -93,7 +101,7 @@ const Signup = () => {
                     label="Day"
                     value={day}
                     setValue={setDay}
-                    width={100}
+                    width={120}
                   />
                 </div>
                 <div>
@@ -109,7 +117,30 @@ const Signup = () => {
             </div>
           </DialogContent>
           <DialogActions>
-            <Button>next</Button>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                width: "900px",
+                marginBottom: "30px",
+              }}
+            >
+              <button
+                className="font font-b"
+                style={{
+                  background: "black",
+                  color: "white",
+                  outline: "none",
+                  border: "none",
+                  width: "95%",
+                  height: "40px",
+                  borderRadius: "30px",
+                  fontSize: "1.0rem",
+                }}
+              >
+                Signup
+              </button>
+            </div>
           </DialogActions>
         </Dialog>
       </Wrapper>
