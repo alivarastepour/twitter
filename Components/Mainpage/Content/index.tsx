@@ -3,6 +3,7 @@ import AppleLogo from "../../Logo/Apple";
 import GoogleLogo from "../../Logo/Google";
 import styles from "../../../styles/mainpageContent.module.scss";
 import Divider from "@mui/material/Divider";
+import Link from "next/link";
 
 const Content = () => (
   <div className="mp-fl-2">
@@ -46,7 +47,9 @@ const Content = () => (
           styles.mainPageButton + " " + styles.blueButton
         }`}
       >
-        <div className="text font font-eb">Sign up with phone or email</div>
+        <Link href="/signup" passHref>
+          <div className="text font font-eb">Sign up with phone or email</div>
+        </Link>
       </div>
       <div className="ct-ch-fl-5">
         <div className="font font-m notice">
