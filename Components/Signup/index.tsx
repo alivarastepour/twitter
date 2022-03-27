@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 import Link from "next/link";
 
@@ -17,11 +17,30 @@ import { YEAR, MONTH, calculateDaysCount } from "./calenderHandler";
 
 import styles from "../../styles/signup.module.scss";
 import { validInfo } from "./signup.handlers";
+import { reducer } from "./signup.reducer";
+import * as actions from "./constants";
 
 const Signup = () => {
-  const [year, setYear] = useState("");
-  const [month, setMonth] = useState("");
-  const [day, setDay] = useState("");
+  const initialState = {
+    birthYear: "",
+    birthMonth: "",
+    birthDay: "",
+    name: "",
+    email: "",
+    nameError: "",
+    emailError: "",
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const birthYearDispatch = (year) => {
+    dispatch({ type: actions.SET_BIRTH_YEAR, payload: year });
+  };
+  const birthDayDispatch = (day) => {
+    dispatch({ type: actions.SET_BIRTH_DAY, payload: day });
+  };
+  const birthMonthDispatch = (month) => {
+    dispatch({ type: actions.SET_BIRTH_MONTH, payload: month });
+  };
 
   return (
     <>
@@ -60,13 +79,27 @@ const Signup = () => {
         <DialogContent>
           <div className={styles.formContainer}>
             <div>
-              <TextField fullWidth label="Name" sx={{ marginBottom: "30px" }} />
+              <TextField
+                fullWidth
+                label="Name"
+                sx={{ marginBottom: "30px" }}
+                error={true}
+                helperText={""}
+                onChange={(e) =>
+                  dispatch({ type: actions.SET_NAME, payload: e.target.value })
+                }
+              />
             </div>
             <div>
               <TextField
                 fullWidth
-                label="Phone"
+                label="Email"
                 sx={{ marginBottom: "30px" }}
+                error={true}
+                helperText={""}
+                onChange={(e) =>
+                  dispatch({ type: actions.SET_EMAIL, payload: e.target.value })
+                }
               />
             </div>
             <div className={`font font-b ${styles.date}`}>Date of birth</div>
@@ -79,17 +112,17 @@ const Signup = () => {
                 <Select
                   items={MONTH}
                   label="Month"
-                  value={month}
-                  setValue={setMonth}
+                  value={state.birthMonth}
+                  setValue={birthMonthDispatch}
                   width={250}
                 />
               </div>
               <div className={styles.select}>
                 <Select
-                  items={calculateDaysCount(year, month)}
+                  items={calculateDaysCount(state.birthYear, state.birthMonth)}
                   label="Day"
-                  value={day}
-                  setValue={setDay}
+                  value={state.birthDay}
+                  setValue={birthDayDispatch}
                   width={120}
                 />
               </div>
@@ -97,8 +130,8 @@ const Signup = () => {
                 <Select
                   items={YEAR}
                   label="Year"
-                  value={year}
-                  setValue={setYear}
+                  value={state.birthYear}
+                  setValue={birthYearDispatch}
                   width={150}
                 />
               </div>
