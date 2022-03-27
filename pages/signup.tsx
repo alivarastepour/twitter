@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Signup from "../Components/Signup";
+import SignupContainer from "../Components/Signup/SignupContainer";
 
 const SignupPage = () => {
   return (
@@ -8,7 +8,7 @@ const SignupPage = () => {
         <title>Sign up for Twitter / Twitter</title>
       </Head>
 
-      <Signup />
+      <SignupContainer />
     </>
   );
 };

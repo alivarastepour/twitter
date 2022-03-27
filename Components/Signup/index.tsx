@@ -1,5 +1,3 @@
-import { useReducer, useState } from "react";
-
 import Link from "next/link";
 
 import DialogActions from "@mui/material/DialogActions";
@@ -17,31 +15,15 @@ import { YEAR, MONTH, calculateDaysCount } from "./calenderHandler";
 
 import styles from "../../styles/signup.module.scss";
 import { validInfo } from "./signup.handlers";
-import { reducer } from "./signup.reducer";
 import * as actions from "./constants";
 
-const Signup = () => {
-  const initialState = {
-    birthYear: "",
-    birthMonth: "",
-    birthDay: "",
-    name: "",
-    email: "",
-    nameError: "",
-    emailError: "",
-  };
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const birthYearDispatch = (year) => {
-    dispatch({ type: actions.SET_BIRTH_YEAR, payload: year });
-  };
-  const birthDayDispatch = (day) => {
-    dispatch({ type: actions.SET_BIRTH_DAY, payload: day });
-  };
-  const birthMonthDispatch = (month) => {
-    dispatch({ type: actions.SET_BIRTH_MONTH, payload: month });
-  };
-
+const Signup = ({
+  state,
+  dispatch,
+  birthYearDispatch,
+  birthDayDispatch,
+  birthMonthDispatch,
+}) => {
   return (
     <>
       <Dialog
