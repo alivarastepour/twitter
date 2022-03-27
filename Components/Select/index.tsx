@@ -17,7 +17,7 @@ const Select = ({ label, items, width, value, setValue }: TselectProps) => {
     <FormControl sx={{ width: width }}>
       <InputLabel id={labelID}>{label}</InputLabel>
       <NativeSelect
-        value={value}
+        value={value || ""}
         onChange={(e) => setValue(e.target.value)}
         labelId={labelID}
         MenuProps={{
