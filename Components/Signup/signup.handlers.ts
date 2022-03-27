@@ -1,6 +1,7 @@
 import { ChangeEvent, Dispatch } from "react";
+import { TsignupFields } from "./TsignupFields";
 
-export const validInfo = (state): boolean => {
+export const validInfo = (state: TsignupFields): boolean => {
   return (
     state.nameError === "" &&
     state.emailError === "" &&

@@ -1,6 +1,7 @@
 import * as actions from "./constants";
-export const reducer = (state, action) => {
-  const type = action.type;
+import { TsignupFields } from "./TsignupFields";
+export const reducer = (state: TsignupFields, action: any): TsignupFields => {
+  const type: string = action.type;
   switch (type) {
     case actions.SET_BIRTH_YEAR:
       return { ...state, birthYear: action.payload };
