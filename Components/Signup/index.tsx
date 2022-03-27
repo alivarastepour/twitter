@@ -11,15 +11,16 @@ import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../Logo";
 import Select from "../Select";
 
-import { YEAR, MONTH, calculateDaysCount } from "./calenderHandler";
-
 import styles from "../../styles/signup.module.scss";
-import { validInfo } from "./signup.handlers";
-import * as actions from "./constants";
 
 const Signup = ({
   state,
   dispatch,
+  actions,
+  YEAR,
+  MONTH,
+  calculateDaysCount,
+  validInfo,
   birthYearDispatch,
   birthDayDispatch,
   birthMonthDispatch,
@@ -65,7 +66,7 @@ const Signup = ({
                 fullWidth
                 label="Name"
                 sx={{ marginBottom: "30px" }}
-                error={true}
+                error={state.nameError !== ""}
                 helperText={""}
                 onChange={(e) =>
                   dispatch({ type: actions.SET_NAME, payload: e.target.value })
@@ -77,7 +78,7 @@ const Signup = ({
                 fullWidth
                 label="Email"
                 sx={{ marginBottom: "30px" }}
-                error={true}
+                error={state.nameError !== ""}
                 helperText={""}
                 onChange={(e) =>
                   dispatch({ type: actions.SET_EMAIL, payload: e.target.value })
