@@ -12,7 +12,7 @@ import Logo from "../Logo";
 import Select from "../Select";
 
 import styles from "../../styles/signup.module.scss";
-import { nameOnChange } from "./signup.handlers";
+import { emailOnChange, nameOnBlur, nameOnChange } from "./signup.handlers";
 
 const Signup = ({
   state,
@@ -68,10 +68,19 @@ const Signup = ({
                 label="Name"
                 sx={{ marginBottom: "30px" }}
                 error={state.nameError !== ""}
-                helperText={""}
+                helperText={
+                  <span style={{ color: "red" }}>{state.nameError}</span>
+                }
                 value={state.name}
                 onChange={(event) =>
                   nameOnChange(dispatch, actions.SET_NAME, event)
+                }
+                onBlur={(event) =>
+                  nameOnBlur(
+                    dispatch,
+                    actions.SET_NAME_ERROR,
+                    event.target.value
+                  )
                 }
               />
             </div>
@@ -80,14 +89,19 @@ const Signup = ({
                 fullWidth
                 label="Email"
                 sx={{ marginBottom: "30px" }}
-                error={state.nameError !== ""}
-                helperText={""}
-                onChange={
-                  (event) => {
-                    event.preventDefault();
-                  }
-                  // nameOnChange(dispatch, actions.SET_EMAIL, event)
+                error={state.emailError !== ""}
+                helperText={
+                  <span style={{ color: "red" }}>{state.emailError}</span>
                 }
+                value={state.email}
+                onChange={(event) => {
+                  emailOnChange(
+                    dispatch,
+                    actions.SET_EMAIL,
+                    actions.SET_EMAIL_ERROR,
+                    event.target.value
+                  );
+                }}
               />
             </div>
             <div className={`font font-b ${styles.date}`}>Date of birth</div>
@@ -130,7 +144,7 @@ const Signup = ({
           <div className={styles.signupContainer}>
             <button
               className={`font font-b ${styles.signupButton}`}
-              disabled={validInfo()}
+              disabled={!validInfo(state)}
             >
               Signup
             </button>
