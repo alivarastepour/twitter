@@ -12,6 +12,7 @@ import Logo from "../Logo";
 import Select from "../Select";
 
 import styles from "../../styles/signup.module.scss";
+import { nameOnChange } from "./signup.handlers";
 
 const Signup = ({
   state,
@@ -68,8 +69,9 @@ const Signup = ({
                 sx={{ marginBottom: "30px" }}
                 error={state.nameError !== ""}
                 helperText={""}
-                onChange={(e) =>
-                  dispatch({ type: actions.SET_NAME, payload: e.target.value })
+                value={state.name}
+                onChange={(event) =>
+                  nameOnChange(dispatch, actions.SET_NAME, event)
                 }
               />
             </div>
@@ -80,8 +82,11 @@ const Signup = ({
                 sx={{ marginBottom: "30px" }}
                 error={state.nameError !== ""}
                 helperText={""}
-                onChange={(e) =>
-                  dispatch({ type: actions.SET_EMAIL, payload: e.target.value })
+                onChange={
+                  (event) => {
+                    event.preventDefault();
+                  }
+                  // nameOnChange(dispatch, actions.SET_EMAIL, event)
                 }
               />
             </div>
