@@ -57,7 +57,12 @@ export const nameOnBlur = (
   }
 };
 
-export const handleSignup = (username: string, email: string): void => {
+export const handleSignup = (
+  dispatch: Dispatch<any>,
+  type: string,
+  username: string,
+  email: string
+): void => {
   const password: string = username + email.split("@")[0];
   const url: string = `${HOST}/users`;
   const data = {
@@ -65,6 +70,14 @@ export const handleSignup = (username: string, email: string): void => {
   };
   axios
     .post(url, data)
-    .then((a) => console.log(a))
-    .catch((e) => console.log(e.response));
+    .then((a) => localStorage.setItem("__cus", a.data.user.token))
+    .catch((e) => {
+      let errorMessage: string = "";
+      try {
+        errorMessage = e.response.data.errors.body;
+      } catch (error) {
+        errorMessage = "failed to create account.";
+      }
+      dispatch({ type, payload: errorMessage });
+    });
 };
