@@ -63,13 +63,15 @@ const Content = () => (
     <div className="ct-ch-5">
       <div className="font font-b text-q">Already have an account?</div>
       <div className="ct-ch-fl">
-        <div
-          className={`font font-b ${
-            styles.mainPageButton + " " + styles.whiteBlueButton
-          }`}
-        >
-          Sign in
-        </div>
+        <Link href="/signin" passHref>
+          <div
+            className={`font font-b ${
+              styles.mainPageButton + " " + styles.whiteBlueButton
+            }`}
+          >
+            Sign in
+          </div>
+        </Link>
       </div>
     </div>
   </div>
