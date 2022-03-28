@@ -1,14 +1,12 @@
-import Head from "next/head";
 import Mainpage from "../Components/Mainpage";
+import PageWrapper from "../Components/PageWrapper/PageWrapper";
 
-const Home = () => {
-  return (
-    <>
-      <Head>
-        <title>Twitter. it&apos;s what&apos;s happening / Twitter</title>
-      </Head>
-      <Mainpage />
-    </>
-  );
-};
-export default Home;
+const HomePage = () => (
+  <>
+    <PageWrapper
+      title="Twitter. it's what's happening / Twitter"
+      Component={Mainpage}
+    />
+  </>
+);
+export default HomePage;
