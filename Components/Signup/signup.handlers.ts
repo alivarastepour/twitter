@@ -66,11 +66,14 @@ export const handleSignup = (
   const password: string = username + email.split("@")[0];
   const url: string = `${HOST}/users`;
   const data = {
-    user: { Email: email, Password: password, Username: username },
+    user: { email, password, username },
   };
   axios
     .post(url, data)
-    .then((a) => localStorage.setItem("__cus", a.data.user.token))
+    .then((a) => {
+      localStorage.setItem("__ut", a.data.user.token);
+      dispatch({ type, payload: "" });
+    })
     .catch((e) => {
       let errorMessage: string = "";
       try {
