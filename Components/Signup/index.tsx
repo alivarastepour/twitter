@@ -143,6 +143,9 @@ const Signup = ({
                 />
               </div>
             </div>
+            <div className={`${styles.error} font font-m`}>
+              {state.serverError}
+            </div>
           </div>
         </DialogContent>
         <DialogActions>
@@ -150,7 +153,14 @@ const Signup = ({
             <button
               className={`font font-b ${styles.signupButton}`}
               disabled={!validInfo(state)}
-              onClick={() => handleSignup(state.name, state.email)}
+              onClick={() =>
+                handleSignup(
+                  dispatch,
+                  actions.SET_SERVER_ERROR,
+                  state.name,
+                  state.email
+                )
+              }
             >
               Signup
             </button>
