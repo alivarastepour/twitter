@@ -5,3 +5,4 @@ export const SET_NAME: string = "SET_NAME";
 export const SET_EMAIL: string = "SET_EMAIL";
 export const SET_NAME_ERROR: string = "SET_NAME_ERROR";
 export const SET_EMAIL_ERROR: string = "SET_EMAIL_ERROR";
+export const SET_SERVER_ERROR: string = "SET_SERVER_ERROR";

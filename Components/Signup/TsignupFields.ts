@@ -6,4 +6,5 @@ export type TsignupFields = {
   email: string;
   nameError: string;
   emailError: string;
+  serverError: string;
 };

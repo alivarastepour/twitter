@@ -17,6 +17,8 @@ export const reducer = (state: TsignupFields, action: any): TsignupFields => {
       return { ...state, nameError: action.payload };
     case actions.SET_EMAIL_ERROR:
       return { ...state, emailError: action.payload };
+    case actions.SET_SERVER_ERROR:
+      return { ...state, serverError: action.payload };
     default:
       return state;
   }

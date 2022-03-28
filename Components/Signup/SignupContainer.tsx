@@ -15,6 +15,7 @@ const SignupContainer = () => {
     email: "",
     nameError: "",
     emailError: "",
+    serverError: "",
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const birthYearDispatch = (year: number): void => {
