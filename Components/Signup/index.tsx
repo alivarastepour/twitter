@@ -12,7 +12,12 @@ import Logo from "../Logo";
 import Select from "../Select";
 
 import styles from "../../styles/signup.module.scss";
-import { emailOnChange, nameOnBlur, nameOnChange } from "./signup.handlers";
+import {
+  emailOnChange,
+  handleSignup,
+  nameOnBlur,
+  nameOnChange,
+} from "./signup.handlers";
 
 const Signup = ({
   state,
@@ -145,6 +150,7 @@ const Signup = ({
             <button
               className={`font font-b ${styles.signupButton}`}
               disabled={!validInfo(state)}
+              onClick={() => handleSignup(state.name, state.email)}
             >
               Signup
             </button>

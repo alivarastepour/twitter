@@ -1,5 +1,7 @@
 import { ChangeEvent, Dispatch } from "react";
 import { TsignupFields } from "./TsignupFields";
+import axios from "axios";
+import { HOST } from "../../public/host";
 
 export const validInfo = (state: TsignupFields): boolean => {
   return (
@@ -53,4 +55,16 @@ export const nameOnBlur = (
   } else {
     dispatch({ type, payload: "" });
   }
+};
+
+export const handleSignup = (username: string, email: string): void => {
+  const password: string = username + email.split("@")[0];
+  const url: string = `${HOST}/users`;
+  const data = {
+    user: { Email: email, Password: password, Username: username },
+  };
+  axios
+    .post(url, data)
+    .then((a) => console.log(a))
+    .catch((e) => console.log(e.response));
 };
