@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch } from "react";
 import { TsignupFields } from "./TsignupFields";
 import axios from "axios";
-import { HOST } from "../../public/host";
+import { HOST } from "../../../public/host";
 
 export const validInfo = (state: TsignupFields): boolean => {
   return (

@@ -1,5 +1,5 @@
 import PageWrapper from "../Components/PageWrapper/PageWrapper";
-import SignupContainer from "../Components/Signup/SignupContainer";
+import SignupContainer from "../Components/Signup/Container/SignupContainer";
 
 const SignupPage = () => (
   <>

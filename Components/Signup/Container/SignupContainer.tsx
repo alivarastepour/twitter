@@ -1,10 +1,10 @@
 import { useReducer } from "react";
-import Signup from ".";
-import { reducer } from "./signup.reducer";
-import * as actions from "./constants";
-import { YEAR, MONTH, calculateDaysCount } from "./calenderHandler";
-import { validInfo } from "./signup.handlers";
-import { TsignupFields } from "./TsignupFields";
+import Signup from "../Presenter/Signup";
+import { reducer } from "../Handlers/signup.reducer";
+import * as actions from "../Handlers/constants";
+import { YEAR, MONTH, calculateDaysCount } from "../Handlers/calenderHandler";
+import { validInfo } from "../Handlers/signup.handlers";
+import { TsignupFields } from "../Handlers/TsignupFields";
 
 const SignupContainer = () => {
   const initialState: TsignupFields = {

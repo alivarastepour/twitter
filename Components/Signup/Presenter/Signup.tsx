@@ -4,18 +4,18 @@ import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
 
-import TwitterLogo from "../Logo/Twitter";
-import Select from "../Select";
-import Dialog from "../Dialog";
+import TwitterLogo from "../../Logo/Twitter";
+import Select from "../../Select";
+import Dialog from "../../Dialog";
 
-import styles from "../../styles/SignupPage/signup.module.scss";
+import styles from "../../../styles/SignupPage/signup.module.scss";
 
 import {
   emailOnChange,
   handleSignup,
   nameOnBlur,
   nameOnChange,
-} from "./signup.handlers";
+} from "../Handlers/signup.handlers";
 
 const Signup = ({
   state,
