@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
 
-import Logo from "../Logo";
+import TwitterLogo from "../Logo/Twitter";
 import Select from "../Select";
 import Dialog from "../Dialog";
 
@@ -41,7 +41,7 @@ const Signup = ({
             </IconButton>
           </div>
           <div>
-            <Logo size="S" />
+            <TwitterLogo size="S" />
           </div>
         </Dialog.Header>
         <Dialog.Title>

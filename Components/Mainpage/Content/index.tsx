@@ -1,16 +1,16 @@
-import Logo from "../../Logo";
+import TwitterLogo from "../../Logo/Twitter";
 
 import styles from "../../../styles/mainpageContent.module.scss";
 import Divider from "@mui/material/Divider";
-import Link from "next/link";
 
+import Link from "next/link";
 import ThirdPartyAuth from "../../Buttons/ThirdPartyAuth";
 import { Button } from "../../Buttons/MainpageButtonWrapper";
 
 const Content = () => (
   <div className="mp-fl-2">
     <div className="ct-ch ct-ch-1">
-      <Logo size="S" />
+      <TwitterLogo size="S" />
     </div>
     <div className="ct-ch ct-ch-2 font font-sb">Happening now</div>
     <div className="ct-ch ct-ch-3 font font-sb">Join Twitter today.</div>

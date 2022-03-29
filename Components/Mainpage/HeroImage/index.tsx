@@ -1,9 +1,9 @@
-import Logo from "../../Logo";
+import TwitterLogo from "../../Logo/Twitter";
 
 const HeroImage = () => (
   <div className="mp-fl-1">
     <div>
-      <Logo size="M" />
+      <TwitterLogo size="M" />
     </div>
   </div>
 );
