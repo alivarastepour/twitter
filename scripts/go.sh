@@ -1,3 +1,3 @@
 #!/bin/sh
-cd twitter-backend
+cd ../twitter-backend
 ./twitter-backend
