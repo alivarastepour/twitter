@@ -1,6 +1,6 @@
 import TwitterLogo from "../../Logo/Twitter";
 
-import styles from "../../../styles/mainpageContent.module.scss";
+import styles from "../../../styles/Mainpage/mainpageContent.module.scss";
 import Divider from "@mui/material/Divider";
 
 import Link from "next/link";

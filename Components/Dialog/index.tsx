@@ -3,7 +3,7 @@ import NativeDialogContent from "@mui/material/DialogContent";
 import NativeDialogTitle from "@mui/material/DialogTitle";
 import NativeDialog from "@mui/material/Dialog";
 
-import styles from "../../styles/dialog.module.scss";
+import styles from "../../styles/Utils/dialog.module.scss";
 
 const Dialog = ({ children }) => (
   <>

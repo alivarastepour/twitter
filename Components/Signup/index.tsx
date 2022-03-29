@@ -8,7 +8,7 @@ import TwitterLogo from "../Logo/Twitter";
 import Select from "../Select";
 import Dialog from "../Dialog";
 
-import styles from "../../styles/signup.module.scss";
+import styles from "../../styles/SignupPage/signup.module.scss";
 
 import {
   emailOnChange,

@@ -1,6 +1,6 @@
 import AppleLogo from "../Logo/Apple";
 import GoogleLogo from "../Logo/Google";
-import styles from "../../styles/ThirdPartyAuth.module.scss";
+import styles from "../../styles/Utils/ThirdPartyAuth.module.scss";
 
 const ThirdPartyAuth = ({ company, state }) => {
   return (

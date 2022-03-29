@@ -1,4 +1,4 @@
-import styles from "../../../styles/logo.module.scss";
+import styles from "../../../styles/Utils/logo.module.scss";
 
 type TtwitterLogoProps = {
   size: string;
