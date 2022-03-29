@@ -1,0 +1,21 @@
+.dialogHeader {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.titleContainer {
+  font-size: 1.6rem;
+}
+
+.formContainer {
+  margin-top: 30px;
+}
+
+.actionContainer {
+  display: flex;
+  justify-content: center;
+  width: 900px;
+  margin-bottom: 30px;
+}
