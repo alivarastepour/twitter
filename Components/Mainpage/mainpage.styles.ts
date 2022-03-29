@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     width: 55%;
     height: 925px;
     background-image: url("/lohp_en_1302x955.png");
-    background-color: rgb(29, 155, 240);
+    background-color: var(--twColor);
     background-position: center;
     display: grid;
     place-content: center;
@@ -89,7 +89,7 @@ export const Wrapper = styled.div`
       .notice {
         font-size: 0.65rem;
         a {
-          color: rgb(29, 155, 240);
+          color: var(--twColor);
           text-decoration: none;
 
           &:hover {

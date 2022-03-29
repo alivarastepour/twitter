@@ -1,3 +1,5 @@
+@import "../GlobalStyles/colorVariables";
+
 .dialogHeader {
   margin: 10px;
   display: flex;
@@ -40,7 +42,7 @@
 
 .signupButton {
   background-color: #000;
-  color: white;
+  color: $wh-color;
   outline: none;
   border: none;
   width: 95%;
@@ -64,6 +66,6 @@
 }
 
 .error {
-  color: red;
+  color: $er-color;
   text-align: center;
 }

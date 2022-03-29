@@ -1,34 +1,36 @@
+@import '../GlobalStyles/colorVariables';
+
 .whiteButton {
   &:hover {
     background-color: rgb(230, 230, 230);
   }
 
   &:not(:hover) {
-    background-color: white;
+    background-color: $wh-color;
   }
 }
 
 .blueButton {
-  background-color: rgb(29, 155, 240);
-  color: white;
+  background-color: $tw-color;
+  color: $wh-color;
 
   &:hover {
     background-color: rgb(26, 140, 216);
   }
 
   &:not(:hover) {
-    background-color: rgb(29, 155, 240);
+    background-color:$tw-color;
   }
 }
 
 .whiteBlueButton {
-  color: rgb(29, 155, 240);
+  color: $tw-color;
   font-size: 1.1rem;
   &:hover {
     background-color: rgba(29, 155, 240, 0.1);
   }
 
   &:not(:hover) {
-    background-color: white;
+    background-color: $wh-color;
   }
 }
