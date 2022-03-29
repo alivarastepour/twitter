@@ -32,7 +32,7 @@ const Signup = ({
   return (
     <>
       <Dialog>
-        <div className={styles.dialogHeader}>
+        <Dialog.Header>
           <div style={{ marginRight: "37%" }}>
             <IconButton>
               <Link href="/" passHref>
@@ -43,7 +43,7 @@ const Signup = ({
           <div>
             <Logo size="S" />
           </div>
-        </div>
+        </Dialog.Header>
         <Dialog.Title>
           <div className="font font-eb">Create your account</div>
         </Dialog.Title>

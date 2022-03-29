@@ -24,6 +24,11 @@ const Dialog = ({ children }) => (
     </NativeDialog>
   </>
 );
+
+const DialogHeader = ({ children }) => (
+  <div className={styles.headerContainer}>{children}</div>
+);
+
 const DialogTitle = ({ children }) => (
   <NativeDialogTitle>
     <div className={styles.titleContainer}>{children}</div>
@@ -42,6 +47,7 @@ const DialogActions = ({ children }) => (
   </NativeDialogActions>
 );
 
+Dialog.Header = DialogHeader;
 Dialog.Title = DialogTitle;
 Dialog.Content = DialogContent;
 Dialog.Actions = DialogActions;
