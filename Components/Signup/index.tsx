@@ -1,17 +1,15 @@
 import Link from "next/link";
 
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
 import CloseIcon from "@mui/icons-material/Close";
 
 import Logo from "../Logo";
 import Select from "../Select";
+import Dialog from "../Dialog";
 
 import styles from "../../styles/signup.module.scss";
+
 import {
   emailOnChange,
   handleSignup,
@@ -33,141 +31,118 @@ const Signup = ({
 }) => {
   return (
     <>
-      <Dialog
-        open={true}
-        PaperProps={{
-          sx: {
-            width: "700px",
-            borderRadius: "15px",
-            "@media only screen and (max-width: 720px)": {
-              width: "100vw",
-              height: "100vh",
-            },
-          },
-        }}
-      >
-        <DialogTitle>
-          <div className={styles.dialogHeader}>
-            <div style={{ marginRight: "37%" }}>
-              <IconButton>
-                <Link href="/" passHref>
-                  <CloseIcon />
-                </Link>
-              </IconButton>
-            </div>
-            <div>
-              <Logo size="S" />
-            </div>
+      <Dialog>
+        <div className={styles.dialogHeader}>
+          <div style={{ marginRight: "37%" }}>
+            <IconButton>
+              <Link href="/" passHref>
+                <CloseIcon />
+              </Link>
+            </IconButton>
           </div>
-        </DialogTitle>
-        <DialogTitle>
-          <div className={`font font-eb ${styles.create} `}>
-            Create your account
+          <div>
+            <Logo size="S" />
           </div>
-        </DialogTitle>
-        <DialogContent>
-          <div className={styles.formContainer}>
-            <div>
-              <TextField
-                fullWidth
-                label="Name"
-                sx={{ marginBottom: "30px" }}
-                error={state.nameError !== ""}
-                helperText={
-                  <span style={{ color: "red" }}>{state.nameError}</span>
-                }
-                value={state.name}
-                onChange={(event) =>
-                  nameOnChange(dispatch, actions.SET_NAME, event)
-                }
-                onBlur={(event) =>
-                  nameOnBlur(
-                    dispatch,
-                    actions.SET_NAME_ERROR,
-                    event.target.value
-                  )
-                }
-              />
-            </div>
-            <div>
-              <TextField
-                fullWidth
-                label="Email"
-                sx={{ marginBottom: "30px" }}
-                error={state.emailError !== ""}
-                helperText={
-                  <span style={{ color: "red" }}>{state.emailError}</span>
-                }
-                value={state.email}
-                onChange={(event) => {
-                  emailOnChange(
-                    dispatch,
-                    actions.SET_EMAIL,
-                    actions.SET_EMAIL_ERROR,
-                    event.target.value
-                  );
-                }}
-              />
-            </div>
-            <div className={`font font-b ${styles.date}`}>Date of birth</div>
-            <div className={`font font-l ${styles.dateNotice}`}>
-              This will not be shown publicly. Confirm your own age, even if
-              this account is for a business, a pet, or something else.
-            </div>
-            <div className={styles.dateContainer}>
-              <div className={styles.select}>
-                <Select
-                  items={MONTH}
-                  label="Month"
-                  value={state.birthMonth}
-                  setValue={birthMonthDispatch}
-                  width={250}
-                />
-              </div>
-              <div className={styles.select}>
-                <Select
-                  items={calculateDaysCount(state.birthYear, state.birthMonth)}
-                  label="Day"
-                  value={state.birthDay}
-                  setValue={birthDayDispatch}
-                  width={120}
-                />
-              </div>
-              <div className={styles.select}>
-                <Select
-                  items={YEAR}
-                  label="Year"
-                  value={state.birthYear}
-                  setValue={birthYearDispatch}
-                  width={150}
-                />
-              </div>
-            </div>
-            <div className={`${styles.error} font font-m`}>
-              {state.serverError}
-            </div>
-          </div>
-        </DialogContent>
-        <DialogActions>
-          <div className={styles.signupContainer}>
-            <button
-              className={`font font-b ${styles.signupButton}`}
-              disabled={!validInfo(state)}
-              onClick={() =>
-                handleSignup(
-                  dispatch,
-                  actions.SET_SERVER_ERROR,
-                  state.name,
-                  state.email
-                )
+        </div>
+        <Dialog.Title>
+          <div className="font font-eb">Create your account</div>
+        </Dialog.Title>
+        <Dialog.Content>
+          <div>
+            <TextField
+              fullWidth
+              label="Name"
+              sx={{ marginBottom: "30px" }}
+              error={state.nameError !== ""}
+              helperText={
+                <span style={{ color: "red" }}>{state.nameError}</span>
               }
-            >
-              Signup
-            </button>
+              value={state.name}
+              onChange={(event) =>
+                nameOnChange(dispatch, actions.SET_NAME, event)
+              }
+              onBlur={(event) =>
+                nameOnBlur(dispatch, actions.SET_NAME_ERROR, event.target.value)
+              }
+            />
           </div>
-        </DialogActions>
+          <div>
+            <TextField
+              fullWidth
+              label="Email"
+              sx={{ marginBottom: "30px" }}
+              error={state.emailError !== ""}
+              helperText={
+                <span style={{ color: "red" }}>{state.emailError}</span>
+              }
+              value={state.email}
+              onChange={(event) => {
+                emailOnChange(
+                  dispatch,
+                  actions.SET_EMAIL,
+                  actions.SET_EMAIL_ERROR,
+                  event.target.value
+                );
+              }}
+            />
+          </div>
+          <div className={`font font-b ${styles.date}`}>Date of birth</div>
+          <div className={`font font-l ${styles.dateNotice}`}>
+            This will not be shown publicly. Confirm your own age, even if this
+            account is for a business, a pet, or something else.
+          </div>
+          <div className={styles.dateContainer}>
+            <div className={styles.select}>
+              <Select
+                items={MONTH}
+                label="Month"
+                value={state.birthMonth}
+                setValue={birthMonthDispatch}
+                width={250}
+              />
+            </div>
+            <div className={styles.select}>
+              <Select
+                items={calculateDaysCount(state.birthYear, state.birthMonth)}
+                label="Day"
+                value={state.birthDay}
+                setValue={birthDayDispatch}
+                width={120}
+              />
+            </div>
+            <div className={styles.select}>
+              <Select
+                items={YEAR}
+                label="Year"
+                value={state.birthYear}
+                setValue={birthYearDispatch}
+                width={150}
+              />
+            </div>
+          </div>
+          <div className={`${styles.error} font font-m`}>
+            {state.serverError}
+          </div>
+        </Dialog.Content>
+        <Dialog.Actions>
+          <button
+            className={`font font-b ${styles.signupButton}`}
+            disabled={!validInfo(state)}
+            onClick={() =>
+              handleSignup(
+                dispatch,
+                actions.SET_SERVER_ERROR,
+                state.name,
+                state.email
+              )
+            }
+          >
+            Signup
+          </button>
+        </Dialog.Actions>
       </Dialog>
     </>
   );
 };
+
 export default Signup;
