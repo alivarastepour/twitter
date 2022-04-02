@@ -32,8 +32,8 @@ const Signup = ({
   return (
     <>
       <Dialog>
-        <Dialog.Header/>
         <Dialog.Title>
+          <Dialog.Header />
           <div className="font font-eb">Create your account</div>
         </Dialog.Title>
         <Dialog.Content>
