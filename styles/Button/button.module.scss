@@ -1,4 +1,4 @@
-@import '../GlobalStyles/colorVariables';
+@import "../GlobalStyles/colorVariables";
 
 .whiteButton {
   &:hover {
@@ -19,7 +19,7 @@
   }
 
   &:not(:hover) {
-    background-color:$tw-color;
+    background-color: $tw-color;
   }
 }
 
