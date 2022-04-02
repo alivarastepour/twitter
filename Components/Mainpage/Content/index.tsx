@@ -1,11 +1,11 @@
 import TwitterLogo from "../../Logo/Twitter";
 
-import styles from "../../../styles/Mainpage/mainpageContent.module.scss";
-import Divider from "@mui/material/Divider";
+import styles from "../../../styles/Button/button.module.scss";
 
 import Link from "next/link";
 import ThirdPartyAuth from "../../Buttons/ThirdPartyAuth";
 import { Button } from "../../Buttons/MainpageButtonWrapper";
+import Divider from "../../Divider";
 
 const Content = () => (
   <div className="mp-fl-2">
@@ -22,9 +22,7 @@ const Content = () => (
         <ThirdPartyAuth company="Apple" state="up" />
       </Button>
       <div className="ct-ch-fl-3">
-        <Divider sx={{ width: 350 }} orientation={"horizontal"}>
-          <div className="font font-m">or</div>
-        </Divider>
+        <Divider orientation="horizontal" text="or" width={350} />
       </div>
       <Button className={`ct-ch-fl ${styles.blueButton}`}>
         <Link href="/signup" passHref>
