@@ -5,6 +5,7 @@ import { Button } from "../Buttons/MainpageButtonWrapper";
 import buttonStyles from "../../styles/Button/button.module.scss";
 import Divider from "../Divider";
 import { TextField } from "@mui/material";
+import Link from "next/link";
 
 const Signin = () => {
   return (
@@ -42,6 +43,34 @@ const Signin = () => {
                 sx={{ width: 300 }}
                 label={<div className="font">password</div>}
               />
+            </div>
+            <div className={styles.contentItem}>
+              <Button
+                className={`
+              ${buttonStyles.blackButton} font font-eb`}
+              >
+                Signin
+              </Button>
+            </div>
+            <div className={styles.contentItem}>
+              <Button
+                className={`
+              ${buttonStyles.whiteButton} font font-b`}
+              >
+                Forgot password?
+              </Button>
+            </div>
+            <div
+              className={`${
+                styles.contentItem + " " + styles.help
+              } font font-m`}
+            >
+              Don&apos;t have an account?
+              <div style={{ display: "inline-block" }}>
+                <Link href="/signup" passHref>
+                  <div className={styles.signup}>Sign up</div>
+                </Link>
+              </div>
             </div>
           </div>
         </Dialog.Content>

@@ -1,7 +1,10 @@
+@import "../GlobalStyles/colorVariables.scss";
+
 .header {
   font-size: 2rem;
   display: flex;
   justify-content: center;
+  margin-bottom: -45px;
 }
 
 .contentContainer {
@@ -12,5 +15,20 @@
 
   .contentItem {
     margin-top: 20px;
+  }
+}
+
+.help {
+  font-size: 0.8rem;
+  display: inline-block;
+  margin: 10px auto 10px auto;
+}
+
+.signup {
+  text-decoration: none;
+  color: $tw-color;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
   }
 }
