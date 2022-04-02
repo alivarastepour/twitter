@@ -32,18 +32,7 @@ const Signup = ({
   return (
     <>
       <Dialog>
-        <Dialog.Header>
-          <div style={{ marginRight: "37%" }}>
-            <IconButton>
-              <Link href="/" passHref>
-                <CloseIcon />
-              </Link>
-            </IconButton>
-          </div>
-          <div>
-            <TwitterLogo size="S" />
-          </div>
-        </Dialog.Header>
+        <Dialog.Header/>
         <Dialog.Title>
           <div className="font font-eb">Create your account</div>
         </Dialog.Title>
