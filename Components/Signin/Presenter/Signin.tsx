@@ -1,26 +1,16 @@
-import Dialog from "../Dialog";
-import styles from "../../styles/SigninPage/signin.module.scss";
-import ThirdPartyAuth from "../Buttons/ThirdPartyAuth";
-import {Button} from "../Buttons/MainpageButtonWrapper";
-import buttonStyles from "../../styles/Button/button.module.scss";
-import Divider from "../Divider";
-import {TextField} from "@mui/material";
 import Link from "next/link";
-import {useState} from "react";
-import {handleSignin} from "./signin.handlers";
-import {TsigninFields} from "./TsigninFields";
+import Dialog from "../../Dialog";
+import styles from "../../../styles/SigninPage/signin.module.scss";
+import ThirdPartyAuth from "../../Buttons/ThirdPartyAuth";
+import {Button} from "../../Buttons/MainpageButtonWrapper";
+import buttonStyles from "../../../styles/Button/button.module.scss";
+import Divider from "../../Divider";
+import {TextField} from "@mui/material";
 
-const Signin = () => {
+import {handleSignin} from "../Handlers/signin.handlers";
 
-    const signinInitialState: TsigninFields = {
-        email: "",
-        password: "",
-        clientError: "",
-        serverError: "",
-    }
-    const [siginState, setSigninState] = useState(signinInitialState);
-
-    return (
+const Signin = ({signinState, setSigninState}) =>
+    (
         <>
             <Dialog>
                 <Dialog.Title>
@@ -48,7 +38,7 @@ const Signin = () => {
                             <TextField
                                 sx={{width: 300}}
                                 label={<div className="font">email</div>}
-                                value={siginState.email}
+                                value={signinState.email}
                                 onChange={e => setSigninState(prevState => {
                                     return {...prevState, email: e.target.value}
                                 })}
@@ -58,18 +48,18 @@ const Signin = () => {
                             <TextField
                                 sx={{width: 300}}
                                 label={<div className="font">password</div>}
-                                value={siginState.password}
+                                value={signinState.password}
                                 onChange={e => setSigninState(prevState => {
                                     return {...prevState, password: e.target.value}
                                 })}
                             />
                         </div>
-                        {(siginState.clientError || siginState.serverError) && <div className={styles.contentItem}>
+                        {(signinState.clientError || signinState.serverError) && <div className={styles.contentItem}>
                             <div className={styles.error + " font font-m"}>
-                                {siginState.clientError ? siginState.clientError : siginState.serverError ? siginState.serverError : ""}
+                                {signinState.clientError ? signinState.clientError : signinState.serverError ? signinState.serverError : ""}
                             </div>
                         </div>}
-                        <div className={styles.contentItem} onClick={() => handleSignin(siginState, setSigninState)}>
+                        <div className={styles.contentItem} onClick={() => handleSignin(signinState, setSigninState)}>
                             <Button
                                 className={`
               ${buttonStyles.blackButton} font font-eb`}
@@ -102,6 +92,6 @@ const Signin = () => {
             </Dialog>
         </>
     );
-};
+
 
 export default Signin;

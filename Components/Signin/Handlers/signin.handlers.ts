@@ -1,6 +1,6 @@
 import {TsigninFields} from "./TsigninFields";
 import axios from "axios";
-import {HOST} from "../../public/host";
+import {HOST} from "../../../public/host";
 
 export const handleSignin = (state: TsigninFields, setState: Function): void => {
     if (state.email.trim() === "") {

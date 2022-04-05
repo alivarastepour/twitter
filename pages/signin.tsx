@@ -1,10 +1,10 @@
 import PageWrapper from "../Components/PageWrapper/PageWrapper";
-import Signin from "../Components/Signin";
+import SigninContainer from "../Components/Signin/Container/SigninContainer";
 
 const SigninPage = () => (
   <>
     <PageWrapper
-      Component={Signin}
+      Component={SigninContainer}
       title="Twitter. it's what's happening / Twitter"
     />
   </>
