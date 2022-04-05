@@ -3,5 +3,4 @@ export type TsigninFields = {
     password: string,
     clientError:string,
     serverError: string,
-
 }

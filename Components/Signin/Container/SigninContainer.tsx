@@ -1,6 +1,10 @@
-import Signin from "../Presenter/Signin";
-import {TsigninFields} from "../Handlers/TsigninFields";
 import {useState} from "react";
+
+import Signin from "../Presenter/Signin";
+
+import {TsigninFields} from "../Handlers/TsigninFields";
+
+import {handleSignin} from "../Handlers/signin.handlers";
 
 const SigninContainer = () => {
 
@@ -13,6 +17,6 @@ const SigninContainer = () => {
 
     const [signinState, setSigninState] = useState(signinInitialState);
 
-    return <Signin signinState={signinState} setSigninState={setSigninState}/>
+    return <Signin signinState={signinState} setSigninState={setSigninState} handleSignin={handleSignin}/>
 }
 export default SigninContainer;

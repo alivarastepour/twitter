@@ -1,15 +1,17 @@
 import Link from "next/link";
+
 import Dialog from "../../Dialog";
-import styles from "../../../styles/SigninPage/signin.module.scss";
 import ThirdPartyAuth from "../../Buttons/ThirdPartyAuth";
-import {Button} from "../../Buttons/MainpageButtonWrapper";
-import buttonStyles from "../../../styles/Button/button.module.scss";
 import Divider from "../../Divider";
+import {Button} from "../../Buttons/MainpageButtonWrapper";
+
 import {TextField} from "@mui/material";
 
-import {handleSignin} from "../Handlers/signin.handlers";
+import styles from "../../../styles/SigninPage/signin.module.scss";
+import buttonStyles from "../../../styles/Button/button.module.scss";
 
-const Signin = ({signinState, setSigninState}) =>
+
+const Signin = ({signinState, setSigninState, handleSignin}) =>
     (
         <>
             <Dialog>
