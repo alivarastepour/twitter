@@ -1,4 +1,4 @@
-import {useReducer} from "react";
+import {useContext, useReducer} from "react";
 
 import Signup from "../Presenter/Signup";
 import {reducer} from "../Handlers/signup.reducer";
@@ -12,6 +12,7 @@ import {
     nameOnChange,
     validInfo
 } from "../Handlers/signup.handlers";
+import {authContext} from "../../../pages/_app";
 
 const SignupContainer = () => {
     const initialState: TsignupFields = {
@@ -34,6 +35,7 @@ const SignupContainer = () => {
     const birthMonthDispatch = (month: number): void => {
         dispatch({type: actions.SET_BIRTH_MONTH, payload: month});
     };
+    const {setAuth} = useContext(authContext);
     return (
         <Signup
             state={state}
@@ -50,6 +52,7 @@ const SignupContainer = () => {
             handleSignup={handleSignup}
             nameOnBlur={nameOnBlur}
             nameOnChange={nameOnChange}
+            setAuth={setAuth}
         />
     );
 };

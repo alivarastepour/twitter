@@ -21,6 +21,7 @@ const Signup = ({
                     handleSignup,
                     nameOnBlur,
                     nameOnChange,
+                    setAuth
                 }) => {
     return (
         <>
@@ -115,7 +116,8 @@ const Signup = ({
                                 dispatch,
                                 actions.SET_SERVER_ERROR,
                                 state.name,
-                                state.email
+                                state.email,
+                                setAuth
                             )
                         }
                     >

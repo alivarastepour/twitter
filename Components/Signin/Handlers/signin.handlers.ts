@@ -4,7 +4,7 @@ import {TsigninFields} from "./TsigninFields";
 
 import {HOST} from "../../../public/host";
 
-export const handleSignin = (state: TsigninFields, setState: Function): void => {
+export const handleSignin = (state: TsigninFields, setState: Function, setAuth:Function): void => {
     if (state.email.trim() === "") {
         setState(prev => {
             return {...prev, clientError: "email can not be empty"}
@@ -29,6 +29,7 @@ export const handleSignin = (state: TsigninFields, setState: Function): void => 
         setState(prev => {
             return {...prev, serverError: "", clientError: ""}
         })
+        setAuth(true);
     }).catch(err => {
         let errorMessage: string = "";
         try {
@@ -40,5 +41,6 @@ export const handleSignin = (state: TsigninFields, setState: Function): void => 
         setState(prev => {
             return {...prev, serverError: errorMessage}
         })
+        setAuth(false);
     });
 }

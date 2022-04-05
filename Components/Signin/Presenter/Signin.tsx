@@ -11,7 +11,7 @@ import styles from "../../../styles/SigninPage/signin.module.scss";
 import buttonStyles from "../../../styles/Button/button.module.scss";
 
 
-const Signin = ({signinState, setSigninState, handleSignin}) =>
+const Signin = ({signinState, setSigninState, handleSignin, setAuth}) =>
     (
         <>
             <Dialog>
@@ -61,7 +61,7 @@ const Signin = ({signinState, setSigninState, handleSignin}) =>
                                 {signinState.clientError ? signinState.clientError : signinState.serverError ? signinState.serverError : ""}
                             </div>
                         </div>}
-                        <div className={styles.contentItem} onClick={() => handleSignin(signinState, setSigninState)}>
+                        <div className={styles.contentItem} onClick={() => handleSignin(signinState, setSigninState, setAuth)}>
                             <Button
                                 className={`
               ${buttonStyles.blackButton} font font-eb`}

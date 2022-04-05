@@ -3,9 +3,10 @@ import {
     Content as FooterWrapper,
 } from "./mainpage.styles";
 import Footer from "./Footer";
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useContext} from "react";
 import dynamic from 'next/dynamic'
 import Spinner from "../Spinner";
+import {authContext} from "../../pages/_app";
 // import HeroImage from "./HeroImage";
 // import Content from "./Content";
 

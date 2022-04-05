@@ -61,7 +61,8 @@ export const handleSignup = (
   dispatch: Dispatch<any>,
   type: string,
   username: string,
-  email: string
+  email: string,
+  setAuth:Function
 ): void => {
   const password: string = username + email.split("@")[0];
   const url: string = `${HOST}/users`;
@@ -73,6 +74,7 @@ export const handleSignup = (
     .then((a) => {
       localStorage.setItem("__ut", a.data.user.token);
       dispatch({ type, payload: "" });
+      setAuth(true);
     })
     .catch((e) => {
       let errorMessage: string = "";
@@ -82,5 +84,6 @@ export const handleSignup = (
         errorMessage = "failed to create account.";
       }
       dispatch({ type, payload: errorMessage });
+      setAuth(false);
     });
 };
