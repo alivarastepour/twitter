@@ -18,9 +18,9 @@ export default class MyDocument extends Document {
         styles: (
           &lt;&gt;
             {initialProps.styles}
-            //highlight-next-line               
+            //highlight-next-line
             {sheet.getStyleElement()}
-          
+
         )
       };
     } finally {
