@@ -3,32 +3,33 @@ import {
     Content as FooterWrapper,
 } from "./mainpage.styles";
 import Footer from "./Footer";
-import React, {lazy, Suspense, useContext} from "react";
-import dynamic from 'next/dynamic'
-import Spinner from "../Spinner";
+import React, {useContext, useEffect, useState} from "react";
+import HeroImage from "./HeroImage";
+import Content from "./Content";
 import {authContext} from "../../pages/_app";
-// import HeroImage from "./HeroImage";
-// import Content from "./Content";
-
-// const Content = lazy(() => import('./Content'));
-const Content = dynamic(() => import('./Content'), {suspense: true});
-// const HeroImage = lazy(() => import('./HeroImage'));
-const HeroImage = dynamic(() => import('./HeroImage'), {suspense: true});
+import {useRouter} from "next/router";
+import Spinner from "../Spinner";
 
 const Mainpage = () => {
+        const {auth, setAuth} = useContext(authContext);
+        const [loading, setLoading] = useState(true);
+        const router = useRouter();
+        useEffect(() => {
+            const token = localStorage.getItem('__ut');
+            if (token) {
+                setAuth(true)
+                router.push('/home')
+            } else
+                setLoading(false);
+        }, [auth, router, setAuth])
         return (
             <>
-                <MainWrapper>
-                    <Suspense fallback={<Spinner/>}>
-                        <HeroImage/>
-                    </Suspense>
-                    <Suspense fallback={<Spinner/>}>
-                        <Content/>
-                    </Suspense>
-                </MainWrapper>
-                <FooterWrapper>
+                {!loading ? <><MainWrapper>
+                    <HeroImage/>
+                    <Content/>
+                </MainWrapper><FooterWrapper>
                     <Footer/>
-                </FooterWrapper>
+                </FooterWrapper></> : <Spinner/>}
             </>
         );
     }
