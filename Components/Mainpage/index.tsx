@@ -1,14 +1,29 @@
+import React, {useContext, useEffect, useState} from "react";
+import {useRouter} from "next/router";
+import dynamic from 'next/dynamic';
+
 import {
     Wrapper as MainWrapper,
     Content as FooterWrapper,
 } from "./mainpage.styles";
-import Footer from "./Footer";
-import React, {useContext, useEffect, useState} from "react";
-import HeroImage from "./HeroImage";
-import Content from "./Content";
-import {authContext} from "../../pages/_app";
-import {useRouter} from "next/router";
 import Spinner from "../Spinner";
+
+import {authContext} from "../../pages/_app";
+
+const HeroImage = dynamic(
+    () => import("./HeroImage"),
+    {loading: () => <Spinner/>}
+)
+
+const Content = dynamic(
+    () => import("./Content"),
+    {loading: () => <Spinner/>}
+)
+
+const Footer = dynamic(
+    () => import('./Footer'),
+    {loading: () => <Spinner/>}
+)
 
 const Mainpage = () => {
         const {auth, setAuth} = useContext(authContext);
@@ -24,12 +39,16 @@ const Mainpage = () => {
         }, [auth, router, setAuth])
         return (
             <>
-                {!loading ? <><MainWrapper>
-                    <HeroImage/>
-                    <Content/>
-                </MainWrapper><FooterWrapper>
-                    <Footer/>
-                </FooterWrapper></> : <Spinner/>}
+                {!loading ? <>
+                    <MainWrapper>
+                        <HeroImage/>
+                        <Content/>
+                    </MainWrapper>
+                    <FooterWrapper>
+                        <Footer/>
+                    </FooterWrapper>
+                </> : <Spinner/>
+                }
             </>
         );
     }
