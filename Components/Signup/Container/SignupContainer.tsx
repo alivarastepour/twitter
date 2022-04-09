@@ -1,4 +1,4 @@
-import {useContext, useReducer} from "react";
+import {useContext, useEffect, useReducer} from "react";
 
 import Signup from "../Presenter/Signup";
 import {reducer} from "../Handlers/signup.reducer";
@@ -13,8 +13,10 @@ import {
     validInfo
 } from "../Handlers/signup.handlers";
 import {authContext} from "../../../pages/_app";
+import {useRouter} from "next/router";
 
 const SignupContainer = () => {
+
     const initialState: TsignupFields = {
         birthYear: "",
         birthMonth: "",
@@ -25,17 +27,30 @@ const SignupContainer = () => {
         emailError: "",
         serverError: "",
     };
+
     const [state, dispatch] = useReducer(reducer, initialState);
+
     const birthYearDispatch = (year: number): void => {
         dispatch({type: actions.SET_BIRTH_YEAR, payload: year});
     };
+
     const birthDayDispatch = (day: number): void => {
         dispatch({type: actions.SET_BIRTH_DAY, payload: day});
     };
+
     const birthMonthDispatch = (month: number): void => {
         dispatch({type: actions.SET_BIRTH_MONTH, payload: month});
     };
-    const {setAuth} = useContext(authContext);
+
+    const {auth, setAuth} = useContext(authContext);
+
+    const router = useRouter();
+    
+    useEffect(() => {
+        if (auth)
+            router.push('/home')
+    }, [auth, router])
+
     return (
         <Signup
             state={state}
