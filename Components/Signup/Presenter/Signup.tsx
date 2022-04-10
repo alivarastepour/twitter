@@ -33,6 +33,7 @@ const Signup = ({
                 <Dialog.Content>
                     <div>
                         <TextField
+                            autoFocus
                             fullWidth
                             label="Name"
                             sx={{marginBottom: "30px"}}

@@ -37,6 +37,7 @@ const Signin = ({signinState, setSigninState, handleSignin, setAuth}) =>
                         </div>
                         <div className={styles.contentItem}>
                             <TextField
+                                autoFocus
                                 sx={{width: 300}}
                                 label={<div className="font">email</div>}
                                 value={signinState.email}
@@ -47,6 +48,7 @@ const Signin = ({signinState, setSigninState, handleSignin, setAuth}) =>
                         </div>
                         <div className={styles.contentItem}>
                             <TextField
+                                type='password'
                                 sx={{width: 300}}
                                 label={<div className="font">password</div>}
                                 value={signinState.password}
