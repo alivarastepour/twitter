@@ -1,11 +1,11 @@
-import TwitterLogo from "../../Logo/Twitter";
+import TwitterLogo from "../../../Logo/Twitter";
 
-import styles from "../../../styles/Button/button.module.scss";
+import styles from "../../../../styles/Button/button.module.scss";
 
 import Link from "next/link";
-import ThirdPartyAuth from "../../Buttons/ThirdPartyAuth";
-import {Button} from "../../Buttons/MainpageButtonWrapper";
-import Divider from "../../Divider";
+import ThirdPartyAuth from "../../../Buttons/ThirdPartyAuth";
+import {Button} from "../../../Buttons/MainpageButtonWrapper";
+import Divider from "../../../Divider";
 
 const Content = () => (
     <div className="mp-fl-2">

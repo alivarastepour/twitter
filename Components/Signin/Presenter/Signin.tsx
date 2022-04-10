@@ -1,15 +1,14 @@
 import Link from "next/link";
 
-import Dialog from "../../Dialog";
 import ThirdPartyAuth from "../../Buttons/ThirdPartyAuth";
 import Divider from "../../Divider";
+import Dialog from "../../Dialog";
 import {Button} from "../../Buttons/MainpageButtonWrapper";
 
 import {TextField} from "@mui/material";
 
 import styles from "../../../styles/SigninPage/signin.module.scss";
 import buttonStyles from "../../../styles/Button/button.module.scss";
-
 
 const Signin = ({signinState, setSigninState, handleSignin, setAuth}) =>
     (
@@ -61,7 +60,8 @@ const Signin = ({signinState, setSigninState, handleSignin, setAuth}) =>
                                 {signinState.clientError ? signinState.clientError : signinState.serverError ? signinState.serverError : ""}
                             </div>
                         </div>}
-                        <div className={styles.contentItem} onClick={() => handleSignin(signinState, setSigninState, setAuth)}>
+                        <div className={styles.contentItem}
+                             onClick={() => handleSignin(signinState, setSigninState, setAuth)}>
                             <Button
                                 className={`
               ${buttonStyles.blackButton} font font-eb`}

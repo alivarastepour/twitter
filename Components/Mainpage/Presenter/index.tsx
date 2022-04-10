@@ -5,10 +5,10 @@ import dynamic from 'next/dynamic';
 import {
     Wrapper as MainWrapper,
     Content as FooterWrapper,
-} from "./mainpage.styles";
-import Spinner from "../Spinner";
+} from "../styles/mainpage.styles";
+import Spinner from "../../Spinner";
 
-import {authContext} from "../../pages/_app";
+import {authContext} from "../../../pages/_app";
 
 const HeroImage = dynamic(
     () => import("./HeroImage"),
@@ -25,18 +25,8 @@ const Footer = dynamic(
     {loading: () => <Spinner/>}
 )
 
-const Mainpage = () => {
-        const {auth, setAuth} = useContext(authContext);
-        const [loading, setLoading] = useState(true);
-        const router = useRouter();
-        useEffect(() => {
-            const token = localStorage.getItem('__ut');
-            if (token) {
-                setAuth(true)
-                router.push('/home')
-            } else
-                setLoading(false);
-        }, [auth, router, setAuth])
+const Mainpage = ({loading}) => {
+
         return (
             <>
                 {!loading ? <>

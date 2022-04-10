@@ -1,11 +1,11 @@
-import Mainpage from "../Components/Mainpage";
 import PageWrapper from "../Components/PageWrapper/PageWrapper";
+import MainpageContainer from "../Components/Mainpage/Container/MainpageContainer";
 
 const HomePage = () => (
     <>
         <PageWrapper
             title="Twitter. it's what's happening / Twitter"
-            Component={Mainpage}
+            Component={MainpageContainer}
         />
     </>
 );
