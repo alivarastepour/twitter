@@ -11,16 +11,48 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import {useState} from "react";
 import TwitterLogo from "../Logo/Twitter";
+import {sidebarContext} from "./sidebarContext";
+import Link from 'next/link'
+
+const getIcon = (title) => {
+    let Icon = null;
+    switch (title) {
+        case 'home':
+            Icon = <HomeRoundedIcon sx={{width: 35, height: 35, color: 'black'}}/>
+            break
+        case 'explore':
+            Icon = <TagRoundedIcon sx={{width: 35, height: 35, color: 'black'}}/>
+            break
+        case 'notifications':
+            Icon = <NotificationsOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
+            break
+        case 'messages':
+            Icon = <EmailOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
+            break
+        case 'bookmarks':
+            Icon = <BookmarkBorderOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
+            break
+        case 'lists':
+            Icon = <ListAltOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
+            break
+        case 'profile':
+            Icon = <PermIdentityOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
+            break
+    }
+    return Icon
+}
 
 const Sidebar = ({selected, select}) => {
+
+
     return <>
         <List>
             <ListItem>
-                <div style={{marginLeft:10}}>
+                <div style={{marginLeft: 10}}>
                     <ListItemButton sx={{
                         '&:hover': {
                             background: 'rgba(29, 155, 240, 0.1)',
-                        }, borderRadius: '50%', width: 65, height: 65, display: 'flex', paddingLeft:1
+                        }, borderRadius: '50%', width: 65, height: 65, display: 'flex', paddingLeft: 1
                     }}>
                         <ListItemIcon>
                             <TwitterLogo size='S'/>
@@ -28,113 +60,28 @@ const Sidebar = ({selected, select}) => {
                     </ListItemButton>
                 </div>
             </ListItem>
-            <ListItem>
-                <div>
-                    <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                    onClick={() => select('home')}>
-                        <ListItemIcon>
-                            <HomeRoundedIcon sx={{width: 35, height: 35, color: 'black'}}/>
-                        </ListItemIcon>
-                        <ListItemText>
-                            <div className={`font ${styles.listItemText} + ${selected == 'home' ? 'font-eb' : ''}`}>
-                                Home
+            {
+                sidebarContext.map(context => {
+                    return <ListItem key={context.id}>
+                        <Link href={context.link} passHref>
+                            <div>
+                                <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
+                                                onClick={() => select(context.title)}>
+                                    <ListItemIcon>
+                                        {getIcon(context.title)}
+                                    </ListItemIcon>
+                                    <ListItemText>
+                                        <div
+                                            className={`font ${styles.listItemText} + ${selected == context.title ? 'font-eb' : ''}`}>
+                                            {context.title}
+                                        </div>
+                                    </ListItemText>
+                                </ListItemButton>
                             </div>
-                        </ListItemText>
-                    </ListItemButton>
-                </div>
-            </ListItem>
-            <ListItem>
-                <div>
-                    <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                    onClick={() => select('explore')}>
-                        <ListItemIcon>
-                            <TagRoundedIcon sx={{width: 35, height: 35, color: 'black'}}/>
-                        </ListItemIcon>
-                        <ListItemText>
-                            <div className={`font ${styles.listItemText} + ${selected == 'explore' ? 'font-eb' : ''}`}>
-                                Explore
-                            </div>
-                        </ListItemText>
-                    </ListItemButton>
-                </div>
-            </ListItem>
-            <ListItem>
-                <div>
-                    <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                    onClick={() => select('notifications')}>
-                        <ListItemIcon>
-                            <NotificationsOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
-                        </ListItemIcon>
-                        <ListItemText>
-                            <div
-                                className={`font ${styles.listItemText} + ${selected == 'notifications' ? 'font-eb' : ''}`}>
-                                Notifications
-                            </div>
-                        </ListItemText>
-                    </ListItemButton>
-                </div>
-            </ListItem>
-            <ListItem>
-                <div>
-                    <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                    onClick={() => select('messages')}>
-                        <ListItemIcon>
-                            <EmailOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
-                        </ListItemIcon>
-                        <ListItemText>
-                            <div className={`font ${styles.listItemText} + ${selected == 'messages' ? 'font-eb' : ''}`}>
-                                Messages
-                            </div>
-                        </ListItemText>
-                    </ListItemButton>
-                </div>
-            </ListItem>
-            <ListItem>
-                <div>
-                    <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                    onClick={() => select('bookmarks')}>
-                        <ListItemIcon>
-                            <BookmarkBorderOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
-                        </ListItemIcon>
-                        <ListItemText>
-                            <div
-                                className={`font ${styles.listItemText} + ${selected == 'bookmarks' ? 'font-eb' : ''}`}>
-                                Bookmarks
-                            </div>
-                        </ListItemText>
-                    </ListItemButton>
-                </div>
-            </ListItem>
-            <ListItem>
-                <div>
-                    <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                    onClick={() => select('lists')}>
-                        <ListItemIcon>
-                            <ListAltOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
-                        </ListItemIcon>
-                        <ListItemText>
-                            <div className={`font ${styles.listItemText} + ${selected == 'lists' ? 'font-eb' : ''}`}>
-                                Lists
-                            </div>
-                        </ListItemText>
-                    </ListItemButton>
-                </div>
-            </ListItem>
-            <ListItem>
-                <div>
-                    <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                    onClick={() => select('profile')}>
-                        <ListItemIcon>
-                            <PermIdentityOutlinedIcon sx={{width: 35, height: 35, color: 'black'}}/>
-                        </ListItemIcon>
-                        <ListItemText>
-                            <div className={`font ${styles.listItemText} + ${selected == 'profile' ? 'font-eb' : ''}`}>
-                                Profile
-                            </div>
-                        </ListItemText>
-                    </ListItemButton>
-                </div>
-            </ListItem>
+                        </Link>
+                    </ListItem>
+                })
+            }
             <ListItem>
                 <div>
                     <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
