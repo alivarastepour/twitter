@@ -1,15 +1,18 @@
-import Sidebar from "../Sidebar";
-import {useCallback, useEffect, useState} from "react";
-import {Wrapper} from "./home.styles";
-import Tweet from "../Tweet";
+import {useCallback, useState} from "react";
 import axios from "axios";
-import {HOST} from "../../public/host";
 import useSWR from 'swr'
 
+import Sidebar from "../Sidebar";
+import Tweet from "../Tweet";
 
-const Home = (props) => {
+import {Wrapper} from "./home.styles";
 
-    const fetchUserInfo = useCallback((url) => {
+import {HOST} from "../../public/host";
+
+
+const Home = () => {
+
+    const fetchUserInfo = useCallback((url:string):Promise<any> => {
         return axios.get(url, {
             headers:{
                 authorization: `Token ${localStorage.getItem('__ut')}`
@@ -17,8 +20,10 @@ const Home = (props) => {
         })
     },[])
 
-    const [selected, select] = useState('home')
-    const {data, error} = useSWR(`${HOST}/user`, fetchUserInfo)
+    const [selected, select] = useState('home');
+
+    const {data, error} = useSWR(`${HOST}/user`, fetchUserInfo);
+
     return <>
         <Wrapper>
             <div className='left'>
