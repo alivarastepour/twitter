@@ -1,34 +1,31 @@
 import Sidebar from "../Sidebar";
-import {useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {Wrapper} from "./home.styles";
+import Tweet from "../Tweet";
+import axios from "axios";
+import {HOST} from "../../public/host";
+import useSWR from 'swr'
 
-const Home = () => {
+
+const Home = (props) => {
+
+    const fetchUserInfo = useCallback((url) => {
+        return axios.get(url, {
+            headers:{
+                authorization: `Token ${localStorage.getItem('__ut')}`
+            }
+        })
+    },[])
+
     const [selected, select] = useState('home')
-    const render = () => {
-        switch (selected) {
-            case 'home':
-                return <>home</>
-            case 'explore':
-                return <>explore</>
-            case 'notifications':
-                return <>notifications</>
-            case 'messages':
-                return <>messages</>
-            case 'bookmarks':
-                return <>bookmarks</>
-            case 'lists':
-                return <>list</>
-            case 'profile':
-                return <>profile</>
-        }
-    }
+    const {data, error} = useSWR(`${HOST}/user`, fetchUserInfo)
     return <>
         <Wrapper>
             <div className='left'>
-            <Sidebar selected={selected} select={select}/>
+                <Sidebar selected={selected} select={select}/>
             </div>
             <div className='main'>
-                main
+                <Tweet who={error ? '?' : data.data.user.username}/>
             </div>
             <div className='right'>
                 left
