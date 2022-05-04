@@ -5,6 +5,7 @@ const HomePage = () => (
     <PageWrapper
     Component={Home}
     title='() Home / Twitter'
+    props={{}}
     />
 )
 export default HomePage;

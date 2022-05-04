@@ -6,6 +6,7 @@ const SignupPage = () => (
     <PageWrapper
       title="Sign up for Twitter / Twitter"
       Component={SignupContainer}
+      props={{}}
     />
   </>
 );

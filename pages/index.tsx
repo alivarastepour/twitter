@@ -6,6 +6,7 @@ const HomePage = () => (
         <PageWrapper
             title="Twitter. it's what's happening / Twitter"
             Component={MainpageContainer}
+            props={{}}
         />
     </>
 );

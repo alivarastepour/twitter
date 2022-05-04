@@ -6,6 +6,7 @@ const SigninPage = () => (
     <PageWrapper
       Component={SigninContainer}
       title="Twitter. it's what's happening / Twitter"
+      props={{}}
     />
   </>
 );
