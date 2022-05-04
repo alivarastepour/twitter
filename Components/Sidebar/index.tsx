@@ -13,6 +13,7 @@ import {useState} from "react";
 import TwitterLogo from "../Logo/Twitter";
 import {sidebarContext} from "./sidebarContext";
 import Link from 'next/link'
+import button from '../../styles/Button/button.module.scss';
 
 const getIcon = (title) => {
     let Icon = null;
@@ -97,7 +98,9 @@ const Sidebar = ({selected, select}) => {
                     </ListItemButton>
                 </div>
             </ListItem>
-
+            <ListItem>
+                <button className={button.blueButton + ' ' + styles.tweet + ' font font-b'}>Tweet</button>
+            </ListItem>
         </List>
     </>
 }
