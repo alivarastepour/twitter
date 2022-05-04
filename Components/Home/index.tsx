@@ -1,5 +1,6 @@
 import Sidebar from "../Sidebar";
 import {useState} from "react";
+import {Wrapper} from "./home.styles";
 
 const Home = () => {
     const [selected, select] = useState('home')
@@ -22,8 +23,17 @@ const Home = () => {
         }
     }
     return <>
-        <Sidebar selected={selected} select={select}/>
-        {render()}
+        <Wrapper>
+            <div className='left'>
+            <Sidebar selected={selected} select={select}/>
+            </div>
+            <div className='main'>
+                main
+            </div>
+            <div className='right'>
+                left
+            </div>
+        </Wrapper>
     </>
 }
 export default Home;
