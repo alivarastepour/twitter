@@ -30,7 +30,7 @@ const Home = () => {
                 <Sidebar selected={selected} select={select}/>
             </div>
             <div className='main'>
-                <Tweet who={error ? '?' : data.data.user.username}/>
+                <Tweet who={error || !data ? '?' : data.data.user.username}/>
             </div>
             <div className='right'>
                 left
