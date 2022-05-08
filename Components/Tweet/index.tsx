@@ -88,9 +88,9 @@ const Tweet = ({who}) => {
                                 can reply to this Tweet <br/> Anyone mentioned can always reply.
                             </div>
                         </div>
-                        <MenuItem onClick={handleClose} sx={{marginBottom: 2, height: 70, borderRadius: 5}}>
-                            <div style={{display: 'flex', alignItems: 'center'}}
-                                 onClick={() => setTweetVisibilityState('Everyone')}>
+                        <MenuItem onClick={handleClose} sx={{marginBottom: 2, height: 70, borderRadius: 5}} onClickCapture={() => setTweetVisibilityState('Everyone')}>
+                            <div style={{display: 'flex', alignItems: 'center'}}>
+
                                 <div>
                                     <div style={{
                                         background: 'rgb(29, 155, 240)',
@@ -110,9 +110,9 @@ const Tweet = ({who}) => {
                                 {/*to do: tick icon*/}
                             </div>
                         </MenuItem>
-                        <MenuItem onClick={handleClose} sx={{marginBottom: 2, height: 70, borderRadius: 5}}>
+                        <MenuItem onClick={handleClose} sx={{marginBottom: 2, height: 70, borderRadius: 5}} onClickCapture={() => setTweetVisibilityState('People you follow')}>
                             <div style={{display: 'flex', alignItems: 'center'}}
-                                 onClick={() => setTweetVisibilityState('People you follow')}>
+                                 >
                                 <div>
                                     <div style={{
                                         background: 'rgb(29, 155, 240)',
@@ -131,9 +131,9 @@ const Tweet = ({who}) => {
                                 </div>
                             </div>
                         </MenuItem>
-                        <MenuItem onClick={handleClose} sx={{height: 70, borderRadius: 5}}>
+                        <MenuItem onClick={handleClose} sx={{height: 70, borderRadius: 5}} onClickCapture={() => setTweetVisibilityState('Only people you mention')}>
                             <div style={{display: 'flex', alignItems: 'center'}}
-                                 onClick={() => setTweetVisibilityState('Only people you mention')}>
+                                 >
                                 <div>
                                     <div style={{
                                         background: 'rgb(29, 155, 240)',
