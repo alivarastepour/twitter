@@ -4,9 +4,12 @@ import {useState} from "react";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LanguageIcon from '@mui/icons-material/Language';
 import GroupIcon from '@mui/icons-material/Group';
+import DoneIcon from '@mui/icons-material/Done';
 
 const Tweet = ({who}) => {
     const [anchorEl, setAnchorEl] = useState(null);
+    const [tweetVisibility, setTweetVisibility] = useState(false);
+    const [tweetVisibilityState, setTweetVisibilityState] = useState('Everyone');
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -57,7 +60,16 @@ const Tweet = ({who}) => {
                     aria-expanded={open ? 'true' : undefined}
                     onClick={handleClick}
                 >
-                    Dashboard
+                    <div className='font font-eb visibilityStatus'>
+                        <div className='visibilityIcon'>
+                            {tweetVisibilityState === 'Everyone' ?
+                                <LanguageIcon/> : tweetVisibilityState === 'People you follow' ? <GroupIcon/> :
+                                    <AlternateEmailIcon/>}
+                        </div>
+                        <div>
+                            {tweetVisibilityState + " can reply"}
+                        </div>
+                    </div>
                 </Button>
                 <Menu
                     id="basic-menu"
@@ -77,7 +89,8 @@ const Tweet = ({who}) => {
                             </div>
                         </div>
                         <MenuItem onClick={handleClose} sx={{marginBottom: 2, height: 70, borderRadius: 5}}>
-                            <div style={{display: 'flex', alignItems:'center'}}>
+                            <div style={{display: 'flex', alignItems: 'center'}}
+                                 onClick={() => setTweetVisibilityState('Everyone')}>
                                 <div>
                                     <div style={{
                                         background: 'rgb(29, 155, 240)',
@@ -94,10 +107,12 @@ const Tweet = ({who}) => {
                                 <div style={{color: 'rgb(100, 100, 113)', marginLeft: 10, fontSize: '1.2rem'}}>
                                     Everyone
                                 </div>
+                                {/*to do: tick icon*/}
                             </div>
                         </MenuItem>
                         <MenuItem onClick={handleClose} sx={{marginBottom: 2, height: 70, borderRadius: 5}}>
-                            <div style={{display: 'flex', alignItems:'center'}}>
+                            <div style={{display: 'flex', alignItems: 'center'}}
+                                 onClick={() => setTweetVisibilityState('People you follow')}>
                                 <div>
                                     <div style={{
                                         background: 'rgb(29, 155, 240)',
@@ -117,7 +132,8 @@ const Tweet = ({who}) => {
                             </div>
                         </MenuItem>
                         <MenuItem onClick={handleClose} sx={{height: 70, borderRadius: 5}}>
-                            <div style={{display: 'flex', alignItems:'center'}}>
+                            <div style={{display: 'flex', alignItems: 'center'}}
+                                 onClick={() => setTweetVisibilityState('Only people you mention')}>
                                 <div>
                                     <div style={{
                                         background: 'rgb(29, 155, 240)',
