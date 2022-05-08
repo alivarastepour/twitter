@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-
+  
   .visibility {
     margin-left: 80px;
   }
@@ -17,3 +17,19 @@ export const Wrapper = styled.div`
     }
   }
 `;
+
+export const iconWrapperStyles = {
+    background: 'rgb(29, 155, 240)',
+    borderRadius: '50%',
+    width: 47,
+    height: 47,
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: 'center'
+};
+
+export const statusWrapper = {color: 'rgb(100, 100, 113)', marginLeft: 10, fontSize: '1.2rem'};
+
+export const iconStyles = {color: 'white', width: 25, height: 25};
+
+export const menuItemWrapper = {display: 'flex', alignItems: 'center'};
