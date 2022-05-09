@@ -1,8 +1,8 @@
-import {Avatar} from "@mui/material";
 import {Wrapper} from './tweet.styles'
 import {useState} from "react";
 import TweetVisibility from "../TweetVisibility";
 import TweetInput from "../TweetInput";
+import TweetUtils from "../TweetUtils";
 
 const Tweet = ({who}) => {
     const [tweetVisibility, setTweetVisibility] = useState(false);
@@ -21,7 +21,7 @@ const Tweet = ({who}) => {
                 <TweetVisibility show={tweetVisibility}/>
             </div>
             <div>
-                salam
+                <TweetUtils/>
             </div>
         </Wrapper>
     </>
