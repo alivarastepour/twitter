@@ -22,7 +22,7 @@ const Content = () => (
                 <ThirdPartyAuth company="Apple" state="up"/>
             </Button>
             <div className="ct-ch-fl-3">
-                <Divider orientation="horizontal" text="or" width={350}/>
+                <Divider orientation="horizontal" text="or" width={350} height={{}}/>
             </div>
             <Link href="/signup" passHref>
                 <Button className={`ct-ch-fl ${styles.blueButton}`}>

@@ -33,7 +33,7 @@ const Signin = ({signinState, setSigninState, handleSignin, setAuth}) =>
                             </Button>
                         </div>
                         <div className={styles.contentItem}>
-                            <Divider orientation="horizontal" text="or" width={300}/>
+                            <Divider orientation="horizontal" text="or" width={300} height={{}}/>
                         </div>
                         <div className={styles.contentItem}>
                             <TextField
