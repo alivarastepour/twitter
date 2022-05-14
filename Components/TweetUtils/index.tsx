@@ -49,8 +49,9 @@ const TweetUtils = ({tweetText}) => {
             <div className='tweetButtonContainer'>
                 {tweetText.length !== 0 && <div className='hiddenSection'>
                     <div className='progressbar'>
-                        <CircularProgress size={'1.5rem'} variant='determinate' value={(100 * tweetText.length) / 280}
-                                          sx={{color: 'rgb(29, 155, 240)'}}/>
+                        <CircularProgress size={'1.5rem'} variant='determinate'
+                                          value={(100 * tweetText.length) / 280}
+                                          sx={{color: `${tweetText.length <= 260 ? 'rgb(29, 155, 240)' : tweetText.length < 280 ? 'rgb(222, 190, 62)' : 'red'}`}}/>
                     </div>
                     <div className='dividerContainer'>
                         <Divider orientation='vertical' text='' width={{}} height={30}/>

@@ -16,7 +16,7 @@ const TweetInput = ({who, tweetText, setTweetText, setTweetVisibility}) => {
         return 1
     }
     const textAreaOnChange = (e) => {
-        if (e.target.value.length == 280)
+        if (e.target.value.length > 280)
             e.preventDefault();
         else
             setTweetText(e.target.value)
