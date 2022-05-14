@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   //}
   
   .main{
-    width: 45%;
+    width: 35%;
   }
   
   .left{
