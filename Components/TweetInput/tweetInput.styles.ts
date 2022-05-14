@@ -17,3 +17,16 @@ export const Wrapper = styled.div`
     font-size: 1.8rem;
   }
 `;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .home{
+    font-size: 1.5rem;
+  }
+`;

@@ -1,5 +1,6 @@
-import {Avatar} from "@mui/material";
-import {Wrapper} from './tweetInput.styles'
+import {Avatar, IconButton} from "@mui/material";
+import {Wrapper, Content} from './tweetInput.styles'
+import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 
 const TweetInput = ({who, tweetText, setTweetText, setTweetVisibility}) => {
     let shortForm: string;
@@ -22,6 +23,16 @@ const TweetInput = ({who, tweetText, setTweetText, setTweetVisibility}) => {
             setTweetText(e.target.value)
     }
     return <>
+        <Content>
+            <div className='font font-eb home'>
+                Home
+            </div>
+            <div>
+                <IconButton>
+                    <AutoAwesomeOutlinedIcon/>
+                </IconButton>
+            </div>
+        </Content>
         <Wrapper>
             <div>
                 <Avatar sx={{bgcolor: 'violet', width: 56, height: 56}}>
