@@ -18,10 +18,11 @@ export const Wrapper = styled.div`
       border: none;
       outline: none;
       background-color: transparent;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
 
       &::placeholder {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        font-family: 'Montserrat',sans-serif;
       }
 
     }

@@ -13,7 +13,7 @@ const SearchBar = () => {
                     </div>
                 </div>
                 <div className='searchBarContainer-second'>
-                    <input placeholder='Search Twitter' onClick={() => setClicked(true)}
+                    <input spellCheck={false} placeholder='Search Twitter' onFocus={() => setClicked(true)}
                            onBlur={() => setClicked(false)} className='searchBar' type="text" name="" id=""/>
                 </div>
             </div>
