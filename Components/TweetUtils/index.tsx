@@ -10,6 +10,7 @@ import styles from '../../styles/Button/button.module.scss'
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import {useState} from "react";
 import Divider from "../Divider";
+import {postTweet} from "./tweetUtilHandler";
 
 const TweetUtils = ({tweetText}) => {
     return <>
@@ -66,7 +67,9 @@ const TweetUtils = ({tweetText}) => {
                 <div>
                     <button
                         className={styles.blueButton + " tweetButton font" + `${0 !== tweetText.length ? ` tweetButtonActive` : ` tweetButtonDisable`}`}
-                        disabled={0 === tweetText.length}>Tweet
+                        disabled={0 === tweetText.length || 280 < tweetText.length}
+                        onClick={() => postTweet(tweetText)}
+                    >Tweet
                     </button>
                 </div>
 
