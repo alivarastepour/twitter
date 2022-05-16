@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding: 15px;
-  
+
   .textArea {
     resize: none;
     border: none;
@@ -22,11 +22,9 @@ export const Content = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  .home{
+  padding: 10px 15px;
+
+  .home {
     font-size: 1.5rem;
   }
 `;
