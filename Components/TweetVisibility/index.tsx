@@ -1,8 +1,12 @@
-import {Button, Menu, MenuItem} from "@mui/material";
+import {useState} from "react";
+
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import LanguageIcon from "@mui/icons-material/Language";
 import GroupIcon from "@mui/icons-material/Group";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import {useState} from "react";
+
 import {iconStyles, iconWrapperStyles, menuItemWrapper, statusWrapper, Wrapper} from "./tweetVisibility.styles";
 
 const TweetVisibility = ({show}) => {
@@ -19,7 +23,6 @@ const TweetVisibility = ({show}) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-
 
 
     return <>
