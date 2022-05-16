@@ -1,20 +1,24 @@
-import {Wrapper} from './tweet.styles'
 import {useState} from "react";
+
 import TweetVisibility from "../TweetVisibility";
-import TweetInput from "../TweetInput";
+import TweetInputContainer from "../TweetInput/Container/TweetInputContainer";
 import TweetUtils from "../TweetUtils";
 
+import {Wrapper} from './tweet.styles'
+
 const Tweet = ({who}) => {
+
     const [tweetVisibility, setTweetVisibility] = useState(false);
+
     const [tweetText, setTweetText] = useState('');
+
     return <>
         <Wrapper>
             <div>
-                <TweetInput
-                    who={who}
-                    tweetText={tweetText}
-                    setTweetText={setTweetText}
-                    setTweetVisibility={setTweetVisibility}
+                <TweetInputContainer who={who}
+                                     tweetText={tweetText}
+                                     setTweetText={setTweetText}
+                                     setTweetVisibility={setTweetVisibility}
                 />
             </div>
             <div>
