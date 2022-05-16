@@ -8,7 +8,6 @@ import EventNoteOutlinedIcon from '@mui/icons-material/EventNoteOutlined';
 import {CircularProgress, IconButton} from "@mui/material";
 import styles from '../../styles/Button/button.module.scss'
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import {useState} from "react";
 import Divider from "../Divider";
 import {postTweet} from "./tweetUtilHandler";
 

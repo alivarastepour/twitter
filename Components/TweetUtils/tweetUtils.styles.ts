@@ -42,6 +42,7 @@ export const Wrapper = styled.div`
       .dividerContainer{
         margin: auto 10px;
       }
+      
       .progressbar{
         margin-top: 3px;
         margin-right: 10px;
