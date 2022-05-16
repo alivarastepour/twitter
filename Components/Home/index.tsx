@@ -9,6 +9,7 @@ import {Wrapper} from "./home.styles";
 
 import {HOST} from "../../public/host";
 import SearchBar from "../SearchBar";
+import TweetDisplay from "../tweetDisplay";
 
 
 const Home = () => {
@@ -32,6 +33,7 @@ const Home = () => {
             </div>
             <div className='main'>
                 <Tweet who={error || !data ? '?' : data.data.user.username}/>
+                <TweetDisplay/>
             </div>
             <div className='right'>
                 <SearchBar/>
