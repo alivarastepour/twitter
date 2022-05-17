@@ -34,6 +34,13 @@ const Home = () => {
             <div className='main'>
                 <Tweet who={error || !data ? '?' : data.data.user.username}/>
                 <TweetDisplay/>
+                <TweetDisplay/>
+                <TweetDisplay/>
+                <TweetDisplay/>
+                <TweetDisplay/>
+                <TweetDisplay/>
+                <TweetDisplay/>
+
             </div>
             <div className='right'>
                 <SearchBar/>
