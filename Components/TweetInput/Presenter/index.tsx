@@ -7,13 +7,17 @@ import {Wrapper, Content} from '../styles/tweetInput.styles'
 const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange, calculateRows}) => {
     return <>
         <Content>
-            <div className='font font-eb home'>
-                Home
-            </div>
-            <div>
-                <IconButton>
-                    <AutoAwesomeOutlinedIcon/>
-                </IconButton>
+            <div className='salam'>
+                <div className="fakeContainer">
+                    <div className='font font-eb home'>
+                        Home
+                    </div>
+                    <div className='favIc'>
+                        <IconButton>
+                            <AutoAwesomeOutlinedIcon/>
+                        </IconButton>
+                    </div>
+                </div>
             </div>
         </Content>
         <Wrapper>

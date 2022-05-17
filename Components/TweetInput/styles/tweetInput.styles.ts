@@ -19,12 +19,22 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   padding: 10px 15px;
+  position: sticky;
+  top: 3px; 
+  z-index: 2;
+
+  .salam {
+    .fakeContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+    }
+  }
 
   .home {
     font-size: 1.5rem;
   }
+
 `;
