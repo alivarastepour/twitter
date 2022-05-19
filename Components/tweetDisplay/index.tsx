@@ -9,6 +9,7 @@ import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import Tooltip from "@mui/material/Tooltip";
 
 import {Wrapper} from "./tweetDisplay.styles";
+import ProfileDialog from "../ProfileDialog";
 
 const TweetDisplay = () => {
 
@@ -25,7 +26,7 @@ const TweetDisplay = () => {
                     <Avatar sx={{width: 48, height: 48}} src='/sample.jpg'/>
                 </div>
                 <div className='ownerContent'>
-                    <span className='tweetOwnerName font font-b'>ali varaste pour</span>
+                    <span className='tweetOwnerName font font-b'><ProfileDialog/></span>
                     <span className='tweetOwnerUsername font font-m'>@AliVarastePour</span>
                     <span> . </span>
                     <Tooltip title={<div style={{fontSize: '0.8rem'}} className='font font-m'>saturday august 12th,
