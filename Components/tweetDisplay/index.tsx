@@ -1,15 +1,23 @@
-import {Wrapper} from "./tweetDisplay.styles";
+import {useState} from "react";
+
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import RepeatOutlinedIcon from '@mui/icons-material/RepeatOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
-import {useState} from "react";
-import {Tooltip} from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
+
+import {Wrapper} from "./tweetDisplay.styles";
 
 const TweetDisplay = () => {
+
     const [hoverEffect, setHoverEffect] = useState('');
+
+    const tweet: string = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, alias consequatur corporis distinctio\n' +
+        'dolores doloribus hic labore #minus numquam quaerat, quis #repudiandae tenetur! Blanditiis culpa\n' +
+        'doloremque exercitationem minus vel, voluptatibus!'
+
     return <>
         <Wrapper>
             <div className="tweetHeader">
@@ -27,9 +35,11 @@ const TweetDisplay = () => {
                 </div>
             </div>
             <div className='tweetContent font font-m'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, alias consequatur corporis distinctio
-                dolores doloribus hic labore minus numquam quaerat, quis repudiandae tenetur! Blanditiis culpa
-                doloremque exercitationem minus vel, voluptatibus!
+                {tweet.split(' ').map(a => {
+                    if (a.startsWith('#'))
+                        return <span key={a} className='hashtag'>{a + " "}</span>
+                    return <span key={a}>{a + " "}</span>
+                })}
             </div>
             <div className="tweetFooter">
                 <div className="tweetAction comment" onMouseEnter={() => setHoverEffect('comment')}

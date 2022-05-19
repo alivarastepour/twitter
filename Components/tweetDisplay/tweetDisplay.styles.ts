@@ -52,10 +52,17 @@ export const Wrapper = styled.div`
   }
 
   .tweetContent {
+    font-size: 1.1rem;
     margin-left: 60px;
     margin-top: -20px;
     color: #0F1419;
     line-height: 1.4rem;
+    .hashtag{
+      color: var(--twColor);
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
 
   .tweetFooter {
