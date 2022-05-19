@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   padding: 15px;
-  border: 1px solid black;
+  border: 1px solid rgb(239, 243, 244);
+  border-bottom: none;
   height: fit-content;
-  margin-top: 20px;
   cursor: pointer;
 
   &:hover {
