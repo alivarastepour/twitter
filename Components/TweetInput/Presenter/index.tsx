@@ -8,7 +8,7 @@ const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange,
     return <>
         <Content>
             <div className='salam'>
-                <div className="fakeContainer">
+                {/*<div className="fakeContainer">*/}
                     <div className='font font-eb home'>
                         Home
                     </div>
@@ -18,7 +18,7 @@ const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange,
                         </IconButton>
                     </div>
                 </div>
-            </div>
+            {/*</div>*/}
         </Content>
         <Wrapper>
             <div>

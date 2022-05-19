@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding: 15px;
+  margin-top: 50px;
 
   .textArea {
     resize: none;
@@ -20,17 +21,17 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   padding: 10px 15px;
-  position: sticky;
-  top: 3px; 
+  position: fixed;
+  top: 0;
   z-index: 2;
+  backdrop-filter: blur(12px);
 
   .salam {
-    .fakeContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 620px;
+    height: 20px;
   }
 
   .home {

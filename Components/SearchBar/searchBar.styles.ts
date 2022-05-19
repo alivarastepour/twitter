@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   margin-top: 10px;
-
+  position: fixed;
+  backdrop-filter: blur(12px);
   .searchBarContainer {
     display: flex;
     flex-direction: row;
