@@ -3,7 +3,17 @@ import {useState} from "react";
 import Menu from "@mui/material/Menu";
 
 
-import {Wrapper} from "./ProfileDialog.styles";
+import {
+    avatar,
+    bio,
+    dialogHeader,
+    followButton,
+    follower,
+    footer, numberContainer, stateContainer,
+    title,
+    username,
+    Wrapper
+} from "./ProfileDialog.styles";
 import Avatar from "@mui/material/Avatar";
 import styles from '../../styles/Button/button.module.scss'
 
@@ -46,41 +56,36 @@ const ProfileDialog = () => {
                     }}
                 >
                     <div className='menu' style={{margin: 12}}>
-                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <div style={dialogHeader}>
                             <div>
-                                <Avatar sx={{width: 60, height: 60}}>S</Avatar>
+                                <Avatar src='/sample.jpg' sx={avatar}/>
                             </div>
                             <div>
                                 <button className={styles.blackButton + " font font-b"}
-                                        style={{
-                                            width: 100,
-                                            height: 40,
-                                            borderRadius: 20,
-                                            fontSize: '1.0rem',
-                                            cursor: 'pointer',
-                                        }}>Follow
+                                        style={followButton}>Follow
                                 </button>
                             </div>
                         </div>
-                        <div className='font font-eb' style={{fontSize: '1.2rem', marginTop: 10}}>ali varaste pour</div>
-                        <div className='font font-l' style={{
-                            fontSize: '1rem', marginTop: 5, color: 'rgb(83, 100, 113)'
-                        }}>@swishSwishMDFK
+                        <div className='font font-eb' style={title}>ali
+                            varaste pour
                         </div>
-                        <div style={{color: 'rgb(83, 100, 113)', marginTop: 15}} className='font font-m'>Lorem ipsum
+                        <div className='font font-l' style={username}>@swishSwishMDFK
+                        </div>
+                        <div style={bio} className='font font-m'>Lorem ipsum
                             dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur eum fuga
                             libero minima mollitia nesciunt non nulla odio praesentium.
                         </div>
-                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', marginTop:10}}
+                        <div
+                            style={footer}
                         >
-                            <div style={{marginRight: 20}}>
-                                <span style={{fontSize: '1.2rem', marginRight:5}} className='font font-b'>1</span>
-                                <span style={{fontSize: '1.1rem', color: 'rgb(83, 100, 113)'}}
+                            <div style={follower}>
+                                <span style={numberContainer} className='font font-b'>1</span>
+                                <span style={stateContainer}
                                       className='font font-l'>Follower</span>
                             </div>
-                            <div>
-                                <span style={{fontSize: '1.2rem', marginRight:5}} className='font font-b'>1</span>
-                                <span style={{fontSize: '1.1rem', color: 'rgb(83, 100, 113)'}}
+                            <div style={{cursor: 'pointer'}}>
+                                <span style={numberContainer} className='font font-b'>1</span>
+                                <span style={stateContainer}
                                       className='font font-l'>Following</span>
                             </div>
                         </div>
