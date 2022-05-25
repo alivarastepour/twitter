@@ -11,13 +11,32 @@ import Tooltip from "@mui/material/Tooltip";
 import {Wrapper} from "./tweetDisplay.styles";
 import ProfileDialog from "../ProfileDialog";
 
-const TweetDisplay = () => {
-
+const TweetDisplay = ({tweet, avatarURL, name, username, time,}) => {
+    const data = new Date("2022-05-14T15:16:41.4370488+04:30");
+    const now = new Date();
+    console.log((now.getTime() - data.getTime()) / (1000 * 60 * 60 * 24))
     const [hoverEffect, setHoverEffect] = useState('');
 
-    const tweet: string = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, alias consequatur corporis distinctio\n' +
-        'dolores doloribus hic labore #minus numquam quaerat, quis #repudiandae tenetur! Blanditiis culpa\n' +
-        'doloremque exercitationem minus vel, voluptatibus!'
+    const calculateTimeDifference = (): string => {
+        const now: Date = new Date();
+        const then: Date = new Date(time);
+        const difference: number = (now.getTime() - then.getTime()) / 1000;
+        const yearDifference: number = difference / (60 * 60 * 24 * 365);
+        const dayDifference: number = difference / (60 * 60 * 24);
+        const hourDifference: number = difference / (60 * 60);
+        const minuteDifference: number = difference / (60);
+        if (yearDifference > 1) {
+            return Math.floor(yearDifference) + 'y';
+        } else if (dayDifference > 1) {
+            return Math.floor(dayDifference) + 'd';
+        } else if (hourDifference > 1) {
+            return Math.floor(hourDifference) + 'h';
+        } else if (minuteDifference > 1) {
+            return Math.floor(minuteDifference) + 'm';
+        } else if (difference < 60) {
+            return Math.floor(difference) + 's'
+        }
+    }
 
     return <>
         <Wrapper>
@@ -27,11 +46,10 @@ const TweetDisplay = () => {
                 </div>
                 <div className='ownerContent'>
                     <span className='tweetOwnerName font font-b'><ProfileDialog/></span>
-                    <span className='tweetOwnerUsername font font-m'>@AliVarastePour</span>
+                    <span className='tweetOwnerUsername font font-m'>{'@' + username}</span>
                     <span> . </span>
-                    <Tooltip title={<div style={{fontSize: '0.8rem'}} className='font font-m'>saturday august 12th,
-                        2022</div>}>
-                        <span className='tweetTime font font-m'>20h</span>
+                    <Tooltip title={<div style={{fontSize: '0.8rem'}} className='font font-m'>{time}</div>}>
+                        <span className='tweetTime font font-m'>{calculateTimeDifference()}</span>
                     </Tooltip>
                 </div>
             </div>
