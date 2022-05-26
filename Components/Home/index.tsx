@@ -48,7 +48,9 @@ const Home = () => {
                                              avatarURL={tweet.author.image}
                                              name={tweet.author.username}
                                              username={tweet.author.username}
-                                             time={tweet.createdAt} key={tweet.createdAt}/>
+                                             time={tweet.createdAt} key={tweet.createdAt}
+                                             bio={tweet.author.bio}
+                        />
                     })
                 }
 

@@ -17,7 +17,7 @@ import {
 import Avatar from "@mui/material/Avatar";
 import styles from '../../styles/Button/button.module.scss'
 
-const ProfileDialog = () => {
+const ProfileDialog = ({name, userName, biography, avatarURL}) => {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -43,7 +43,7 @@ const ProfileDialog = () => {
                     onMouseEnter={handleClick}
                     className='name'
                 >
-                    ali varaste pour
+                    {name}
                 </span>
                 <Menu
                     id="basic-menu"
@@ -66,14 +66,11 @@ const ProfileDialog = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className='font font-eb' style={title}>ali
-                            varaste pour
+                        <div className='font font-eb' style={title}>{name}
                         </div>
-                        <div className='font font-l' style={username}>@swishSwishMDFK
+                        <div className='font font-l' style={username}>{'@' + userName}
                         </div>
-                        <div style={bio} className='font font-m'>Lorem ipsum
-                            dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur eum fuga
-                            libero minima mollitia nesciunt non nulla odio praesentium.
+                        <div style={bio} className='font font-m'>{biography}
                         </div>
                         <div
                             style={footer}

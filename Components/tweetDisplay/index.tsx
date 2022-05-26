@@ -11,7 +11,7 @@ import Tooltip from "@mui/material/Tooltip";
 import {Wrapper} from "./tweetDisplay.styles";
 import ProfileDialog from "../ProfileDialog";
 
-const TweetDisplay = ({tweet, avatarURL, name, username, time,}) => {
+const TweetDisplay = ({tweet, avatarURL, name, username, time, bio}) => {
     const data = new Date("2022-05-14T15:16:41.4370488+04:30");
     const now = new Date();
     console.log((now.getTime() - data.getTime()) / (1000 * 60 * 60 * 24))
@@ -45,7 +45,8 @@ const TweetDisplay = ({tweet, avatarURL, name, username, time,}) => {
                     <Avatar sx={{width: 48, height: 48}} src='/sample.jpg'/>
                 </div>
                 <div className='ownerContent'>
-                    <span className='tweetOwnerName font font-b'><ProfileDialog/></span>
+                    <span className='tweetOwnerName font font-b'><ProfileDialog name={name} userName={username}
+                                                                                avatarURL={avatarURL} bio={bio}/></span>
                     <span className='tweetOwnerUsername font font-m'>{'@' + username}</span>
                     <span> . </span>
                     <Tooltip title={<div style={{fontSize: '0.8rem'}} className='font font-m'>{time}</div>}>
