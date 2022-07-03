@@ -14,6 +14,7 @@ import {postTweet} from "./tweetUtilHandler";
 import styles from '../../styles/Button/button.module.scss';
 
 import {iconButtonStyles, iconStyles, Wrapper} from './tweetUtils.styles';
+import Router from "next/router";
 
 const TweetUtils = ({tweetText}) => {
     return <>
@@ -71,7 +72,10 @@ const TweetUtils = ({tweetText}) => {
                     <button
                         className={styles.blueButton + " tweetButton font" + `${0 !== tweetText.length ? ` tweetButtonActive` : ` tweetButtonDisable`}`}
                         disabled={0 === tweetText.length || 280 < tweetText.length}
-                        onClick={() => postTweet(tweetText)}
+                        onClick={() => {
+                            Router.reload()
+                            postTweet(tweetText)
+                        }}
                     >Tweet
                     </button>
                 </div>

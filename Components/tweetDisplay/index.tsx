@@ -12,9 +12,6 @@ import {Wrapper} from "./tweetDisplay.styles";
 import ProfileDialog from "../ProfileDialog";
 
 const TweetDisplay = ({tweet, avatarURL, name, username, time, bio}) => {
-    const data = new Date("2022-05-14T15:16:41.4370488+04:30");
-    const now = new Date();
-    console.log((now.getTime() - data.getTime()) / (1000 * 60 * 60 * 24))
     const [hoverEffect, setHoverEffect] = useState('');
 
     const calculateTimeDifference = (): string => {
