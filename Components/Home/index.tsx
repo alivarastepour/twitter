@@ -10,6 +10,7 @@ import {Wrapper} from "./home.styles";
 import {HOST} from "../../public/host";
 import SearchBar from "../SearchBar";
 import TweetDisplay from "../tweetDisplay";
+import Trends from "../Trends";
 
 
 const Home = () => {
@@ -57,6 +58,7 @@ const Home = () => {
             </div>
             <div className='right'>
                 <SearchBar/>
+                <Trends/>
             </div>
         </Wrapper>
     </>
