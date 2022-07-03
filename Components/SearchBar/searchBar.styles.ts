@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     width: 400px;
     height: 50px;
     border-radius: 25px;
-    background-color: #E8E8E8;
+    background-color: #f5f5f5;
     border: 1px solid white;
 
     .searchBar {
