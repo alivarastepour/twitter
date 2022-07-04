@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  margin-top: 70px;
+  margin-top: 80px;
+  margin-bottom: 20px;
   box-sizing: border-box;
   width: 400px;
   border-radius: 12px;
