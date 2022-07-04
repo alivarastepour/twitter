@@ -11,6 +11,7 @@ import {HOST} from "../../public/host";
 import SearchBar from "../SearchBar";
 import TweetDisplay from "../tweetDisplay";
 import Trends from "../Trends";
+import WhoToFollow from "../WhoToFollow";
 
 
 const Home = () => {
@@ -59,6 +60,7 @@ const Home = () => {
             <div className='right'>
                 <SearchBar/>
                 <Trends/>
+                <WhoToFollow/>
             </div>
         </Wrapper>
     </>
