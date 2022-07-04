@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   flex-direction: row;
   margin-top: 20px;
-  padding-left: 85px;
-
+  padding-left: 75px;
+  padding-right: 35px;
   .additional {
     display: flex;
     flex-direction: row;
