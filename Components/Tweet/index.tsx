@@ -25,7 +25,7 @@ const Tweet = ({who}) => {
                 <TweetVisibility show={tweetVisibility}/>
             </div>
             <div>
-                <TweetUtils tweetText={tweetText}/>
+                <TweetUtils tweetText={tweetText} setTweetText={setTweetText}/>
             </div>
         </Wrapper>
     </>
