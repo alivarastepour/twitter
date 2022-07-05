@@ -14,7 +14,7 @@ export const postTweet = (body: string): void => {
             body,
             // to do
             description: body.slice(1) + new Date(),
-            title: body[0]
+            title: body[0] + new Date()
         }
     }
     axios.post(url, data, {
