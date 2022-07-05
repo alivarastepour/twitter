@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   height: 100vh;
-  width: inherit;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
