@@ -12,6 +12,7 @@ import SearchBar from "../SearchBar";
 import TweetDisplay from "../tweetDisplay";
 import Trends from "../Trends";
 import WhoToFollow from "../WhoToFollow";
+import Spinner from "../Spinner";
 
 
 const Home = () => {
@@ -35,7 +36,7 @@ const Home = () => {
     const [selected, select] = useState('home');
 
     const userInfo = useSWR(`${HOST}/user`, fetchUserInfo);
-    const tweets = useSWR(`${HOST}/articles`, fetchTweets);
+    const {data, isValidating} = useSWR(`${HOST}/articles`, fetchTweets);
     return <>
         <Wrapper>
             <div className='left'>
@@ -45,7 +46,7 @@ const Home = () => {
                 <Tweet
                     who={userInfo && userInfo.data && userInfo.data.data && userInfo.data.data.user ? userInfo.data.data.user.username : '?'}/>
                 {
-                    tweets && tweets.data && tweets.data.data && tweets.data.data.articles && tweets.data.data.articles.map(tweet => {
+                    !isValidating ? data.data.articles.map(tweet => {
                         return <TweetDisplay tweet={tweet.body}
                                              avatarURL={tweet.author.image}
                                              name={tweet.author.username}
@@ -53,9 +54,8 @@ const Home = () => {
                                              time={tweet.createdAt} key={tweet.createdAt}
                                              bio={tweet.author.bio}
                         />
-                    })
+                    }) : <Spinner/>
                 }
-
             </div>
             <div className='right'>
                 <SearchBar/>
