@@ -6,12 +6,11 @@ export const Wrapper = styled.div`
   border-radius: 12px;
   background-color: #f5f5f5;
   margin-bottom: 20px;
-  
-  .title{
+
+  .title {
     font-size: 1.5rem;
     padding-top: 20px;
     margin-bottom: 15px;
     padding-left: 20px;
   }
-  
 `;
