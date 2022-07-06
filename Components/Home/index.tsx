@@ -13,6 +13,7 @@ import TweetDisplay from "../tweetDisplay";
 import Trends from "../Trends";
 import WhoToFollow from "../WhoToFollow";
 import Spinner from "../Spinner";
+import Footer from "./Footer";
 
 
 const Home = () => {
@@ -61,6 +62,7 @@ const Home = () => {
                 <SearchBar/>
                 <Trends/>
                 <WhoToFollow/>
+                <Footer/>
             </div>
         </Wrapper>
     </>
