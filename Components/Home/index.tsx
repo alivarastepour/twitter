@@ -36,7 +36,7 @@ const Home = () => {
     const [selected, select] = useState('home');
 
     const userInfo = useSWR(`${HOST}/user`, fetchUserInfo);
-    const {data, isValidating} = useSWR(`${HOST}/articles`, fetchTweets);
+    const {data, isValidating, error} = useSWR(`${HOST}/articles`, fetchTweets);
     return <>
         <Wrapper>
             <div className='left'>
@@ -46,7 +46,7 @@ const Home = () => {
                 <Tweet
                     who={userInfo && userInfo.data && userInfo.data.data && userInfo.data.data.user ? userInfo.data.data.user.username : '?'}/>
                 {
-                    !isValidating ? data.data.articles.map(tweet => {
+                    !isValidating && !error ? data.data.articles.map(tweet => {
                         return <TweetDisplay tweet={tweet.body}
                                              avatarURL={tweet.author.image}
                                              name={tweet.author.username}
@@ -54,7 +54,7 @@ const Home = () => {
                                              time={tweet.createdAt} key={tweet.createdAt}
                                              bio={tweet.author.bio}
                         />
-                    }) : <Spinner/>
+                    }) : error ? <></> : <Spinner/>
                 }
             </div>
             <div className='right'>
