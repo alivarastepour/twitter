@@ -8,17 +8,15 @@ const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange,
     return <>
         <Content>
             <div className='salam'>
-                {/*<div className="fakeContainer">*/}
-                    <div className='font font-eb home'>
-                        Home
-                    </div>
-                    <div className='favIc'>
-                        <IconButton>
-                            <AutoAwesomeOutlinedIcon/>
-                        </IconButton>
-                    </div>
+                <div className='font font-eb home'>
+                    Home
                 </div>
-            {/*</div>*/}
+                <div className='favIc'>
+                    <IconButton>
+                        <AutoAwesomeOutlinedIcon/>
+                    </IconButton>
+                </div>
+            </div>
         </Content>
         <Wrapper>
             <div>
@@ -37,6 +35,13 @@ const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange,
                         rows={calculateRows}
                         onChange={textAreaOnChange}
                         onClick={() => setTweetVisibility(true)}
+                        onKeyUp={(e) => {
+                            if (e.key === 'Enter') {
+                                console.log(this)
+                            }
+                        }
+                        }
+
                     />
             </div>
         </Wrapper>

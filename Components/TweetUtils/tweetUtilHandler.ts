@@ -12,7 +12,6 @@ export const postTweet = (body: string): void => {
         article: {
             tagList,
             body,
-            // to do
             description: body.slice(1) + new Date(),
             title: body[0] + new Date()
         }
