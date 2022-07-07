@@ -1,5 +1,19 @@
 import {ChangeEvent} from "react";
 
+String.prototype.count = function (char: string): number {
+    let counter: number = 0;
+    if (char.length != 1)
+        return -1;
+    else {
+        for (let i = 0; i < this.length; i++) {
+            if (this[i] === char)
+                counter++;
+        }
+    }
+    return counter;
+}
+
+
 export const createShortForm = (who: string): string => {
     let shortForm: string;
     let separated: string[] = who.split(' ');
@@ -11,7 +25,9 @@ export const createShortForm = (who: string): string => {
 }
 
 export const calculateRows = (tweetText: string): number => {
-    const value = Math.ceil(tweetText.length / 51);
+    let value = Math.ceil(tweetText.length / 28);
+    let enterCounter: number = tweetText.count('\n');
+    value += enterCounter;
     if (value !== 0)
         return value;
     return 1
