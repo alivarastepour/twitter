@@ -13,7 +13,6 @@ import ProfileDialog from "../ProfileDialog";
 
 const TweetDisplay = ({tweet, avatarURL, name, username, time, bio}) => {
     const [hoverEffect, setHoverEffect] = useState('');
-
     const calculateTimeDifference = (): string => {
         const now: Date = new Date();
         const then: Date = new Date(time);
@@ -43,7 +42,8 @@ const TweetDisplay = ({tweet, avatarURL, name, username, time, bio}) => {
                 </div>
                 <div className='ownerContent'>
                     <span className='tweetOwnerName font font-b'><ProfileDialog name={name} userName={username}
-                                                                                avatarURL={avatarURL} bio={bio}/></span>
+                                                                                avatarURL={avatarURL}
+                                                                                biography={bio}/></span>
                     <span className='tweetOwnerUsername font font-m'>{'@' + username}</span>
                     <span> . </span>
                     <Tooltip title={<div style={{fontSize: '0.8rem'}} className='font font-m'>{time}</div>}>
@@ -51,11 +51,16 @@ const TweetDisplay = ({tweet, avatarURL, name, username, time, bio}) => {
                     </Tooltip>
                 </div>
             </div>
-            <div className='tweetContent font font-m'>
-                {tweet.split(' ').map(a => {
-                    if (a.startsWith('#'))
-                        return <span key={a} className='hashtag'>{a + " "}</span>
-                    return <span key={a}>{a + " "}</span>
+            <div className='tweetContent font font-m' id='tweetContent'>
+                {tweet.split('\n').map(line => {
+                    return <div key={line}>
+                        {
+                            line.split(' ').map(word => {
+                                return <span key={word}
+                                             className={word.startsWith('#') ? 'hashtag' : ''}>{word + " "}</span>
+                            })
+                        }
+                    </div>
                 })}
             </div>
             <div className="tweetFooter">
