@@ -4,7 +4,7 @@ import {TtweetInputFields} from "../Handlers/TtweetInputFields";
 
 import {calculateRows, createShortForm, textAreaOnChange} from "../Handlers/tweetInputHandlers";
 
-const TweetInputContainer = ({who, tweetText, setTweetText, setTweetVisibility}: TtweetInputFields) => {
+const TweetInputContainer = ({who, tweetText, setTweetText, setTweetVisibility, isModal}: TtweetInputFields) => {
 
     return <TweetInput
         calculateRows={calculateRows(tweetText)}

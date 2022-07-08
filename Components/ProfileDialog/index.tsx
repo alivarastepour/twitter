@@ -17,7 +17,7 @@ import {
 import Avatar from "@mui/material/Avatar";
 import styles from '../../styles/Button/button.module.scss'
 
-const ProfileDialog = ({name, userName, biography, avatarURL, bio}) => {
+const ProfileDialog = ({name, userName, biography, avatarURL}) => {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);

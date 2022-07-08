@@ -22,6 +22,8 @@ import styles from "../../styles/Home/sidebar.module.scss";
 import button from '../../styles/Button/button.module.scss';
 
 import {sidebarContext} from "./sidebarContext";
+import TweetModal from "../TweetModal";
+import {useState} from "react";
 
 const getIcon = (title) => {
     let Icon = null;
@@ -52,6 +54,7 @@ const getIcon = (title) => {
 }
 
 const Sidebar = ({selected, select}) => {
+    const [tweetModalOpen, setTweetModalOpen] = useState(false);
     return <>
         <Wrapper>
             <List>
@@ -106,10 +109,13 @@ const Sidebar = ({selected, select}) => {
                     </div>
                 </ListItem>
                 <ListItem>
-                    <button className={button.blueButton + ' ' + styles.tweet + ' font font-b'}>Tweet</button>
+                    <button className={button.blueButton + ' ' + styles.tweet + ' font font-b'}
+                            onClick={() => setTweetModalOpen(true)}>Tweet
+                    </button>
                 </ListItem>
             </List>
         </Wrapper>
+        <TweetModal open={tweetModalOpen} onClose={() => setTweetModalOpen(false)}/>
     </>
 }
 

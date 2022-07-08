@@ -5,8 +5,9 @@ import TweetInputContainer from "../TweetInput/Container/TweetInputContainer";
 import TweetUtils from "../TweetUtils";
 
 import {Wrapper} from './tweet.styles'
+import Divider from "../Divider";
 
-const Tweet = ({who}) => {
+const Tweet = ({who, isModal}) => {
 
     const [tweetVisibility, setTweetVisibility] = useState(false);
 
@@ -19,11 +20,20 @@ const Tweet = ({who}) => {
                                      tweetText={tweetText}
                                      setTweetText={setTweetText}
                                      setTweetVisibility={setTweetVisibility}
+                                     isModal={true}
+
                 />
             </div>
-            <div>
-                <TweetVisibility show={tweetVisibility}/>
+            <div className={isModal && 'tw-container'}>
+                <TweetVisibility show={isModal || tweetVisibility}/>
             </div>
+            {
+                isModal && (
+                    <div className='t-divider-container'>
+                        <Divider text={''}/>
+                    </div>
+                )
+            }
             <div>
                 <TweetUtils tweetText={tweetText} setTweetText={setTweetText}/>
             </div>
