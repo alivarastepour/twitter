@@ -11,6 +11,7 @@ import Tooltip from "@mui/material/Tooltip";
 import {Wrapper} from "./tweetDisplay.styles";
 import ProfileDialog from "../ProfileDialog";
 import {calculateTimeDifference} from "./tweetDisplayHandlers";
+import {createShortForm} from "../TweetInput/Handlers/tweetInputHandlers";
 
 const TweetDisplay = ({tweet, avatarURL, name, username, time, bio}) => {
 
@@ -20,7 +21,10 @@ const TweetDisplay = ({tweet, avatarURL, name, username, time, bio}) => {
         <Wrapper>
             <div className="tweetHeader">
                 <div>
-                    <Avatar sx={{width: 48, height: 48}} src='/sample.jpg'/>
+
+                    <Avatar sx={{width: 48, height: 48, bgcolor: 'violet'}} src={avatarURL ?? ''}>{avatarURL ? '' : createShortForm(name)}</Avatar>
+
+
                 </div>
                 <div className='ownerContent'>
                     <span className='tweetOwnerName font font-b'><ProfileDialog name={name} userName={username}
