@@ -22,7 +22,7 @@ const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange,
             <div>
                 <Avatar sx={{bgcolor: 'violet', width: 56, height: 56}}>
                     <div className='avatarText'>
-                        {shortForm.toUpperCase()}
+                        {shortForm}
                     </div>
                 </Avatar>
             </div>

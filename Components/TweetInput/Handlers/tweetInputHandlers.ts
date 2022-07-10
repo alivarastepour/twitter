@@ -18,10 +18,10 @@ export const createShortForm = (who: string): string => {
     let shortForm: string;
     let separated: string[] = who.split(' ');
     if (separated.length > 1)
-        shortForm = who.split(' ')[0][0] + who.split(' ')[1][0]
+        shortForm = who.split(' ')[0][0] + who.split(' ')[1][0];
     else
-        shortForm = who[0]
-    return shortForm
+        shortForm = who[0];
+    return shortForm.toUpperCase();
 }
 
 export const calculateRows = (tweetText: string): number => {
