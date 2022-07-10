@@ -4,9 +4,9 @@ import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 
 import {Wrapper, Content} from '../styles/tweetInput.styles'
 
-const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange, calculateRows}) => {
+const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange, calculateRows, isModal}) => {
     return <>
-        <Content>
+        {isModal || <Content>
             <div className='salam'>
                 <div className='font font-eb home'>
                     Home
@@ -17,7 +17,7 @@ const TweetInput = ({tweetText, setTweetVisibility, shortForm, textAreaOnChange,
                     </IconButton>
                 </div>
             </div>
-        </Content>
+        </Content>}
         <Wrapper>
             <div>
                 <Avatar sx={{bgcolor: 'violet', width: 56, height: 56}}>

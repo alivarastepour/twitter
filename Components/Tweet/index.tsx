@@ -20,8 +20,7 @@ const Tweet = ({who, isModal}) => {
                                      tweetText={tweetText}
                                      setTweetText={setTweetText}
                                      setTweetVisibility={setTweetVisibility}
-                                     isModal={true}
-
+                                     isModal={isModal}
                 />
             </div>
             <div className={isModal && 'tw-container'}>
@@ -30,7 +29,7 @@ const Tweet = ({who, isModal}) => {
             {
                 isModal && (
                     <div className='t-divider-container'>
-                        <Divider text={''}/>
+                        <Divider text={''} height={''} width={''} orientation={''}/>
                     </div>
                 )
             }

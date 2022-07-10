@@ -7,6 +7,7 @@ import {calculateRows, createShortForm, textAreaOnChange} from "../Handlers/twee
 const TweetInputContainer = ({who, tweetText, setTweetText, setTweetVisibility, isModal}: TtweetInputFields) => {
 
     return <TweetInput
+        isModal={isModal}
         calculateRows={calculateRows(tweetText)}
         textAreaOnChange={e => textAreaOnChange(e, setTweetText)}
         shortForm={createShortForm(who)}

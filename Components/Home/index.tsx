@@ -44,8 +44,8 @@ const Home = () => {
                 <Sidebar selected={selected} select={select}/>
             </div>
             <div className='main'>
-                <Tweet
-                    who={userInfo && userInfo.data && userInfo.data.data && userInfo.data.data.user ? userInfo.data.data.user.username : '?'}/>
+                <Tweet isModal={false}
+                       who={userInfo && userInfo.data && userInfo.data.data && userInfo.data.data.user ? userInfo.data.data.user.username : '?'}/>
                 {
                     !isValidating && !error ? data.data.articles.map(tweet => {
                         return <TweetDisplay tweet={tweet.body}
