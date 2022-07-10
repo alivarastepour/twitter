@@ -14,9 +14,18 @@ import Trends from "../Trends";
 import WhoToFollow from "../WhoToFollow";
 import Spinner from "../Spinner";
 import Footer from "./Footer";
+import {useRouter} from "next/router";
 
 
 const Home = () => {
+
+    const router = useRouter();
+
+    useEffect(() => {
+        const isUserValid: string = localStorage.getItem('__ut');
+        if (!isUserValid)
+            router.push('/signin')
+    }, [router])
 
     const fetchUserInfo = useCallback((url: string): Promise<any> => {
         return axios.get(url, {
