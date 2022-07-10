@@ -47,6 +47,7 @@ const Home = () => {
 
     const userInfo = useSWR(`${HOST}/user`, fetchUserInfo);
     const {data, isValidating, error} = useSWR(`${HOST}/articles`, fetchTweets);
+
     return <>
         <Wrapper>
             <div className='left'>
@@ -57,12 +58,12 @@ const Home = () => {
                        who={userInfo?.data?.data?.user?.username || '?'}/>
                 {
                     !isValidating && !error ? data.data.articles.map(tweet => {
-                        return <TweetDisplay tweet={tweet.body}
-                                             avatarURL={tweet.author.image}
-                                             name={tweet.author.username}
-                                             username={tweet.author.username}
-                                             time={tweet.createdAt} key={tweet.createdAt}
-                                             bio={tweet.author.bio}
+                        return <TweetDisplay tweet={tweet?.body}
+                                             avatarURL={tweet?.author?.image}
+                                             name={tweet?.author?.username}
+                                             username={tweet?.author?.username}
+                                             time={tweet?.createdAt} key={tweet?.createdAt}
+                                             bio={tweet?.author?.bio}
                         />
                     }) : error ? <></> : <Spinner/>
                 }
