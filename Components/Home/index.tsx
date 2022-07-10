@@ -45,7 +45,7 @@ const Home = () => {
             </div>
             <div className='main'>
                 <Tweet isModal={false}
-                       who={userInfo && userInfo.data && userInfo.data.data && userInfo.data.data.user ? userInfo.data.data.user.username : '?'}/>
+                       who={userInfo?.data?.data?.user?.username || '?'}/>
                 {
                     !isValidating && !error ? data.data.articles.map(tweet => {
                         return <TweetDisplay tweet={tweet.body}
