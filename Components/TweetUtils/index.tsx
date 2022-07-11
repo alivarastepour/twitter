@@ -14,6 +14,7 @@ import {postTweet} from "./tweetUtilHandler";
 import styles from '../../styles/Button/button.module.scss';
 
 import {iconButtonStyles, iconStyles, Wrapper} from './tweetUtils.styles';
+import {Tooltip} from "@mui/material";
 
 const TweetUtils = ({tweetText, setTweetText}) => {
     return <>
@@ -21,32 +22,44 @@ const TweetUtils = ({tweetText, setTweetText}) => {
             <div className='additional'>
                 <div>
                     <IconButton sx={iconButtonStyles}>
-                        <InsertPhotoOutlinedIcon sx={iconStyles}/>
+                        <Tooltip title='Media'>
+                            <InsertPhotoOutlinedIcon sx={iconStyles}/>
+                        </Tooltip>
                     </IconButton>
                 </div>
                 <div>
                     <IconButton sx={iconButtonStyles}>
-                        <GifBoxOutlinedIcon sx={iconStyles}/>
+                        <Tooltip title='Gif'>
+                            <GifBoxOutlinedIcon sx={iconStyles}/>
+                        </Tooltip>
                     </IconButton>
                 </div>
                 <div>
                     <IconButton sx={iconButtonStyles}>
-                        <PollOutlinedIcon sx={iconStyles}/>
+                        <Tooltip title='Poll'>
+                            <PollOutlinedIcon sx={iconStyles}/>
+                        </Tooltip>
                     </IconButton>
                 </div>
                 <div>
                     <IconButton sx={iconButtonStyles}>
-                        <SentimentSatisfiedOutlinedIcon sx={iconStyles}/>
+                        <Tooltip title='Emoji'>
+                            <SentimentSatisfiedOutlinedIcon sx={iconStyles}/>
+                        </Tooltip>
                     </IconButton>
                 </div>
                 <div>
                     <IconButton sx={iconButtonStyles}>
-                        <EventNoteOutlinedIcon sx={iconStyles}/>
+                        <Tooltip title='Schedule'>
+                            <EventNoteOutlinedIcon sx={iconStyles}/>
+                        </Tooltip>
                     </IconButton>
                 </div>
                 <div>
                     <IconButton sx={iconButtonStyles}>
-                        <FmdGoodOutlinedIcon sx={iconStyles}/>
+                        <Tooltip title='Location'>
+                            <FmdGoodOutlinedIcon sx={iconStyles}/>
+                        </Tooltip>
                     </IconButton>
                 </div>
             </div>
