@@ -1,11 +1,12 @@
-import PageWrapper from "../Components/PageWrapper/PageWrapper";
-import Home from "../Components/Home";
+import HomePageWrapper from "../Components/HomePageWrapper";
+import Feed from "../Components/Feed";
 
 const HomePage = () => (
-    <PageWrapper
-    Component={Home}
-    title='() Home / Twitter'
-    props={{}}
+
+    <HomePageWrapper
+        title={'() Home / Twitter'}
+        props={{}}
+        Component={Feed}
     />
 )
 export default HomePage;
