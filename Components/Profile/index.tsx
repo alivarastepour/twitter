@@ -11,8 +11,8 @@ const Profile = ({username}) => {
             }
         })
     }
-
-    const {data} = useSWR(`${HOST}/profiles/${username}`, getUser);
+    const requestURL: string = username === 'profile' ? `${HOST}/user` : `${HOST}/profiles/${username}`
+    const {data} = useSWR(requestURL, getUser);
     return <>salam</>
 }
 
