@@ -43,7 +43,6 @@ const Home = () => {
         })
     }, [])
 
-    const [selected, select] = useState('home');
 
     const userInfo = useSWR(`${HOST}/user`, fetchUserInfo);
     const {data, isValidating, error} = useSWR(`${HOST}/articles`, fetchTweets);
@@ -51,7 +50,7 @@ const Home = () => {
     return <>
         <Wrapper>
             <div className='left'>
-                <Sidebar selected={selected} select={select}/>
+                <Sidebar/>
             </div>
             <div className='main'>
                 <Tweet isModal={false}
