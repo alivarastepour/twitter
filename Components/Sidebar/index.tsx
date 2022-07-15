@@ -23,7 +23,8 @@ import button from '../../styles/Button/button.module.scss';
 
 import {sidebarContext} from "./sidebarContext";
 import TweetModal from "../TweetModal";
-import {useState} from "react";
+import { useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 const getIcon = (title) => {
     let Icon = null;
@@ -53,8 +54,12 @@ const getIcon = (title) => {
     return Icon
 }
 
-const Sidebar = ({selected, select}) => {
+const Sidebar = () => {
     const [tweetModalOpen, setTweetModalOpen] = useState(false);
+    // @ts-ignore
+    const {selected} = useSelector(selector => selector);
+    const dispatch = useDispatch();
+
     return <>
         <Wrapper>
             <List>
@@ -77,7 +82,10 @@ const Sidebar = ({selected, select}) => {
                             <Link href={context.link} passHref>
                                 <div>
                                     <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                                    onClick={() => select(context.title)}>
+                                                    onClick={() => dispatch({
+                                                        type: 'sidebar/select',
+                                                        payload: context.title
+                                                    })}>
                                         <ListItemIcon>
                                             {getIcon(context.title)}
                                         </ListItemIcon>
@@ -96,7 +104,10 @@ const Sidebar = ({selected, select}) => {
                 <ListItem>
                     <div>
                         <ListItemButton sx={{borderRadius: 20, paddingRight: 5}} className={styles.listItem}
-                                        onClick={() => select('more')}>
+                                        onClick={() => dispatch({
+                                            type: 'sidebar/select',
+                                            payload: 'more'
+                                        })}>
                             <ListItemIcon>
                                 <MoreHorizIcon sx={{width: 35, height: 35, color: 'black'}}/>
                             </ListItemIcon>
