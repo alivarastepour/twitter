@@ -2,6 +2,7 @@ import Profile from "../Components/Profile";
 import axios from "axios";
 import {HOST} from "../public/host";
 import HomePageWrapper from "../Components/HomePageWrapper";
+import {useSelector} from "react-redux";
 
 const ProfilePage = (props) => (
     <>
@@ -35,8 +36,17 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context) => {
+    const {username} = context.params;
+    const requestURL: string = username === 'profile' ? `${HOST}/user` : `${HOST}/profiles/${username}`;
+    const token = localStorage.getItem('__ut');
+    const data = await axios.get(requestURL, {
+        headers: {
+            Authorization: `Token ${token}`
+        }
+    })
+
     return {
-        props: context.params
+        props: data
     }
 }
 
