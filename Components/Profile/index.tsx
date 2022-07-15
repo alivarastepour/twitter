@@ -1,8 +1,10 @@
 import axios from "axios";
 import {HOST} from "../../public/host";
 import useSWR from "swr";
+import useSidebar from "../../customHooks/useSidebar";
 
 const Profile = ({username}) => {
+    useSidebar({payload: 'profile'});
     const getUser = async url => {
         const token = localStorage.getItem('__ut');
         return await axios.get(url, {

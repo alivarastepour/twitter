@@ -5,9 +5,11 @@ import useSWR from "swr";
 import {HOST} from "../../public/host";
 import {useCallback} from "react";
 import axios from "axios";
+import useSidebar from "../../customHooks/useSidebar";
 
 const Feed = () => {
 
+    useSidebar({payload: 'home'});
 
     const fetchUserInfo = useCallback((url: string): Promise<any> => {
         return axios.get(url, {
