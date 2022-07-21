@@ -4,6 +4,7 @@ import Spinner from "../Spinner";
 import { HOST } from "../../public/host";
 import useSidebar from "../../customHooks/useSidebar";
 import useFetch from "../../customHooks/useFetch";
+import GlobalHeader from "../GlobalHeader";
 
 const Feed = () => {
   useSidebar({ payload: "home" });
@@ -11,6 +12,7 @@ const Feed = () => {
   const { data: tweets, isValidating, error } = useFetch(`${HOST}/articles`);
   return (
     <>
+      <GlobalHeader content={"Home"} />
       <Tweet isModal={false} who={userInfo?.data?.user?.username || "?"} />
       {!isValidating && !error ? (
         tweets.data.articles.map((tweet) => {

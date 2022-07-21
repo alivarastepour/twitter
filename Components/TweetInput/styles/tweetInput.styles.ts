@@ -18,24 +18,3 @@ export const Wrapper = styled.div`
     font-size: 1.8rem;
   }
 `;
-
-export const Content = styled.div`
-  padding: 10px 15px;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  backdrop-filter: blur(12px);
-
-  .salam {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 620px;
-    height: 20px;
-  }
-
-  .home {
-    font-size: 1.5rem;
-  }
-
-`;
