@@ -1,4 +1,4 @@
-import { Wrapper } from "./footer.styles";
+import { Wrapper } from "./globalFooter.styles";
 
 const Footer = () => {
   return (
