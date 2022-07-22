@@ -1,19 +1,21 @@
 import IconButton from "@mui/material/IconButton";
-import { Content } from "./globalHeader.styles";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
 
-const GlobalHeader = ({ content }) => {
-  return (
-    <Content>
-      <div className="container">
-        <div className="font font-eb home">{content}</div>
-        <div className="favIc">
-          <IconButton>
-            <AutoAwesomeOutlinedIcon />
-          </IconButton>
-        </div>
+import { TglobalHeader } from "./Handlers/TglobalHeader";
+
+import { Content } from "./globalHeader.styles";
+
+const GlobalHeader = ({ content }: TglobalHeader) => (
+  <Content>
+    <div className="container">
+      <div className="font font-eb home">{content}</div>
+      <div className="favIc">
+        <IconButton>
+          <AutoAwesomeOutlinedIcon />
+        </IconButton>
       </div>
-    </Content>
-  );
-};
+    </div>
+  </Content>
+);
+
 export default GlobalHeader;
