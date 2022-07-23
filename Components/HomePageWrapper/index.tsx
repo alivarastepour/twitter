@@ -10,9 +10,9 @@ import Footer from "../GlobalFooter";
 import PageWrapper from "../PageWrapper/PageWrapper";
 
 import { Wrapper } from "./homePageWrapper.styles";
-import { ThomePageWrapper } from "./Handlers/ThomePageWrapper";
+import { TPageWrapper } from "../PageWrapper/Handlers/TPageWrapper";
 
-const HomePageWrapper = ({ Component, title, props }: ThomePageWrapper) => (
+const HomePageWrapper = ({ Component, title, props }: TPageWrapper) => (
   <>
     <Wrapper>
       <Provider store={store}>
