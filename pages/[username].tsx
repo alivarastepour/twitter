@@ -1,11 +1,15 @@
-import Profile from "../Components/Profile";
 import axios from "axios";
 import { HOST } from "../public/host";
 import HomePageWrapper from "../Components/HomePageWrapper";
+import ProfileContainer from "../Components/Profile/Container/ProfileContainer";
 
 const ProfilePage = (props) => (
   <>
-    <HomePageWrapper title={props.username} Component={Profile} props={props} />
+    <HomePageWrapper
+      title={props.username}
+      Component={ProfileContainer}
+      props={props}
+    />
   </>
 );
 
