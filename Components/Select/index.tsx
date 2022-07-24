@@ -3,16 +3,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import NativeSelect from "@mui/material/Select";
 
-type TselectProps = {
-  label: string;
-  items: number[] | string[];
-  width: number;
-  value: number | string;
-  setValue: Function;
-};
+import { Tselect } from "./Handlers/Tselect";
 
-const Select = ({ label, items, width, value, setValue }: TselectProps) => {
+const Select = ({ label, items, width, value, setValue }: Tselect) => {
   const labelID = `${label}-label`;
+
   return (
     <FormControl sx={{ width: width }}>
       <InputLabel id={labelID}>{label}</InputLabel>
