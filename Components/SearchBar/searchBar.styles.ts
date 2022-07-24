@@ -25,16 +25,14 @@ export const Wrapper = styled.div`
 
       &::placeholder {
         font-size: 1.2rem;
-        font-family: 'Montserrat',sans-serif;
+        font-family: "Montserrat", sans-serif;
       }
-
     }
 
-
-    .searchBarContainer-second, .searchBarContainer-first {
+    .searchBarContainer-second,
+    .searchBarContainer-first {
       margin-left: 20px;
     }
-
   }
 
   .clicked {
