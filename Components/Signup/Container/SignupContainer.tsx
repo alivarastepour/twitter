@@ -1,74 +1,55 @@
-import {useContext, useEffect, useReducer} from "react";
+import { useContext, useEffect, useReducer } from "react";
+import { useRouter } from "next/router";
 
 import Signup from "../Presenter/Signup";
-import {reducer} from "../Handlers/signup.reducer";
+
 import * as actions from "../Handlers/constants";
-import {YEAR, MONTH, calculateDaysCount} from "../Handlers/calenderHandler";
-import {TsignupFields} from "../Handlers/TsignupFields";
+import { TsignupFields } from "../Handlers/TsignupFields";
 import {
-    emailOnChange,
-    handleSignup,
-    nameOnBlur,
-    nameOnChange,
-    validInfo
+  handleSignup,
+  reducerDecorator,
+  validInfo,
 } from "../Handlers/signup.handlers";
-import {authContext} from "../../../pages/_app";
-import {useRouter} from "next/router";
+import { reducer } from "../Handlers/signup.reducer";
+import { authContext } from "../../../pages/_app";
 
 const SignupContainer = () => {
+  const initialState: TsignupFields = {
+    birthYear: "",
+    birthMonth: "",
+    birthDay: "",
+    name: "",
+    email: "",
+    nameError: "",
+    emailError: "",
+    serverError: "",
+  };
 
-    const initialState: TsignupFields = {
-        birthYear: "",
-        birthMonth: "",
-        birthDay: "",
-        name: "",
-        email: "",
-        nameError: "",
-        emailError: "",
-        serverError: "",
-    };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+  const { auth, setAuth } = useContext(authContext);
 
-    const birthYearDispatch = (year: number): void => {
-        dispatch({type: actions.SET_BIRTH_YEAR, payload: year});
-    };
+  const router = useRouter();
 
-    const birthDayDispatch = (day: number): void => {
-        dispatch({type: actions.SET_BIRTH_DAY, payload: day});
-    };
-
-    const birthMonthDispatch = (month: number): void => {
-        dispatch({type: actions.SET_BIRTH_MONTH, payload: month});
-    };
-
-    const {auth, setAuth} = useContext(authContext);
-
-    const router = useRouter();
-    
-    useEffect(() => {
-        if (auth)
-            router.push('/home')
-    }, [auth, router])
-
-    return (
-        <Signup
-            state={state}
-            dispatch={dispatch}
-            actions={actions}
-            YEAR={YEAR}
-            MONTH={MONTH}
-            calculateDaysCount={calculateDaysCount}
-            validInfo={validInfo}
-            birthDayDispatch={birthDayDispatch}
-            birthMonthDispatch={birthMonthDispatch}
-            birthYearDispatch={birthYearDispatch}
-            emailOnChange={emailOnChange}
-            handleSignup={handleSignup}
-            nameOnBlur={nameOnBlur}
-            nameOnChange={nameOnChange}
-            setAuth={setAuth}
-        />
-    );
+  useEffect(() => {
+    if (auth) {
+      router.push("/home");
+    }
+  });
+  return (
+    <Signup
+      state={state}
+      dispatch={dispatch}
+      actions={actions}
+      validInfo={validInfo}
+      handleSignup={handleSignup}
+      setAuth={setAuth}
+      birthDayDispatch={reducerDecorator(dispatch, actions.SET_BIRTH_DAY)}
+      birthMonthDispatch={reducerDecorator(dispatch, actions.SET_BIRTH_MONTH)}
+      birthYearDispatch={reducerDecorator(dispatch, actions.SET_BIRTH_YEAR)}
+      emailOnChange={reducerDecorator(dispatch, actions.SET_EMAIL)}
+      nameOnChange={reducerDecorator(dispatch, actions.SET_NAME)}
+    />
+  );
 };
 export default SignupContainer;

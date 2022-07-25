@@ -1,6 +1,8 @@
 import { ChangeEvent, Dispatch } from "react";
-import { TsignupFields } from "./TsignupFields";
 import axios from "axios";
+
+import * as actions from "../Handlers/constants";
+import { TsignupFields } from "./TsignupFields";
 import { HOST } from "../../../public/host";
 
 export const validInfo = (state: TsignupFields): boolean => {
@@ -36,11 +38,10 @@ export const emailOnChange = (
   email: string
 ): void => {
   const validEmail: boolean = validEmailPattern.test(email);
+  dispatch({ type: typeSuccess, payload: email });
   if (validEmail) {
-    dispatch({ type: typeSuccess, payload: email });
     dispatch({ type: typeError, payload: "" });
   } else {
-    dispatch({ type: typeSuccess, payload: email });
     dispatch({ type: typeError, payload: "Please enter a valid email." });
   }
 };
@@ -51,7 +52,7 @@ export const nameOnBlur = (
   name: string
 ): void => {
   if (name.trim() === "") {
-    dispatch({ type, payload: "What’s your name?" });
+    dispatch({ type, payload: "What's your name?" });
   } else {
     dispatch({ type, payload: "" });
   }
@@ -62,7 +63,7 @@ export const handleSignup = (
   type: string,
   username: string,
   email: string,
-  setAuth:Function
+  setAuth: Function
 ): void => {
   const password: string = username + email.split("@")[0];
   const url: string = `${HOST}/users`;
@@ -71,19 +72,33 @@ export const handleSignup = (
   };
   axios
     .post(url, data)
-    .then((a) => {
-      localStorage.setItem("__ut", a.data.user.token);
+    .then((res) => {
+      localStorage.setItem("__ut", res.data.user.token);
       dispatch({ type, payload: "" });
       setAuth(true);
     })
-    .catch((e) => {
-      let errorMessage: string = "";
-      try {
-        errorMessage = e.response.data.errors.body;
-      } catch (error) {
-        errorMessage = "failed to create account.";
-      }
+    .catch((error) => {
+      let errorMessage: string =
+        error.response?.data?.errors?.body || "failed to create account.";
       dispatch({ type, payload: errorMessage });
       setAuth(false);
     });
+};
+
+export const reducerDecorator = (
+  dispatch: Function,
+  type: string
+): Function => {
+  switch (type) {
+    case actions.SET_BIRTH_DAY:
+    case actions.SET_BIRTH_MONTH:
+    case actions.SET_BIRTH_YEAR:
+      return (payload: string | number) => {
+        dispatch({ type, payload });
+      };
+    case actions.SET_EMAIL:
+      return emailOnChange;
+    case actions.SET_NAME:
+      return nameOnChange;
+  }
 };
