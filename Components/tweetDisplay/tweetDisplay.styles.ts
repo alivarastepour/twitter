@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 
     .ownerContent {
       margin-left: 10px;
-      .timeTooltip{
+      .timeTooltip {
         color: red;
       }
     }
@@ -36,10 +36,10 @@ export const Wrapper = styled.div`
       &:hover {
         text-decoration: underline;
       }
-
     }
 
-    .tweetOwnerUsername, .tweetTime {
+    .tweetOwnerUsername,
+    .tweetTime {
       color: #536471;
     }
 
@@ -48,18 +48,17 @@ export const Wrapper = styled.div`
         text-decoration: underline;
       }
     }
-
   }
 
   .tweetContent {
     font-size: 1.1rem;
     margin-left: 60px;
     margin-top: -20px;
-    color: #0F1419;
+    color: #0f1419;
     line-height: 1.4rem;
-    .hashtag{
+    .hashtag {
       color: var(--twColor);
-      &:hover{
+      &:hover {
         text-decoration: underline;
       }
     }
@@ -92,7 +91,6 @@ export const Wrapper = styled.div`
       &:hover {
         color: rgb(0, 186, 124);
       }
-
     }
 
     .like {

@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 import TweetInput from "../Presenter";
 
 import { TtweetInputFields } from "../Handlers/TtweetInputFields";
@@ -13,15 +15,16 @@ const TweetInputContainer = ({
   tweetText,
   setTweetText,
   setTweetVisibility,
-}: TtweetInputFields) => {
-  return (
-    <TweetInput
-      calculateRows={calculateRows(tweetText)}
-      textAreaOnChange={(e) => textAreaOnChange(e, setTweetText)}
-      shortForm={createShortForm(who)}
-      tweetText={tweetText}
-      setTweetVisibility={setTweetVisibility}
-    />
-  );
-};
+}: TtweetInputFields) => (
+  <TweetInput
+    calculateRows={calculateRows(tweetText)}
+    textAreaOnChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+      textAreaOnChange(e, setTweetText)
+    }
+    shortForm={createShortForm(who)}
+    tweetText={tweetText}
+    setTweetVisibility={setTweetVisibility}
+  />
+);
+
 export default TweetInputContainer;

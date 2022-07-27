@@ -1,12 +1,11 @@
-import {Wrapper, Container} from "./spinner.styles";
+import { Wrapper, Container } from "./spinner.styles";
 
-const Spinner = () => {
-    return (
-        <>
-            <Container>
-                <Wrapper/>
-            </Container>
-        </>
-    );
-};
+const Spinner = () => (
+  <>
+    <Container>
+      <Wrapper />
+    </Container>
+  </>
+);
+
 export default Spinner;

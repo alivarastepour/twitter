@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   height: 50%;
   display: flex;
   justify-content: center;
-  
+
   .tm-container {
     display: flex;
     flex-direction: row;
