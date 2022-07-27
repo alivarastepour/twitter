@@ -3,11 +3,13 @@ import { useState } from "react";
 import TweetVisibility from "../TweetVisibility";
 import TweetInputContainer from "../TweetInput/Container/TweetInputContainer";
 import TweetUtils from "../TweetUtils";
-
-import { Wrapper } from "./tweet.styles";
 import Divider from "../Divider";
 
-const Tweet = ({ who, isModal }) => {
+import { Wrapper } from "./tweet.styles";
+
+import { TtweetProps } from "./Handlers/TtweetProps";
+
+const Tweet = ({ who, isModal }: TtweetProps) => {
   const [tweetVisibility, setTweetVisibility] = useState(false);
 
   const [tweetText, setTweetText] = useState("");
@@ -28,7 +30,12 @@ const Tweet = ({ who, isModal }) => {
         </div>
         {isModal && (
           <div className="t-divider-container">
-            <Divider text={""} height={""} width={""} orientation={""} />
+            <Divider
+              text=""
+              height={-1}
+              width={100}
+              orientation={"horizontal"}
+            />
           </div>
         )}
         <div>
