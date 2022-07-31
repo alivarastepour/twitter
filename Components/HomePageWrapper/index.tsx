@@ -15,7 +15,7 @@ import Spinner from "../Spinner";
 import useAuth from "../../customHooks/useAuth";
 
 const HomePageWrapper = ({ Component, title, props }: TPageWrapper) => {
-  const loading = useAuth("/signin");
+  const loading = useAuth("/signin", false);
   return (
     <>
       {loading ? (

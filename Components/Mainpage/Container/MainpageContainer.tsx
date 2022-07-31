@@ -1,6 +1,9 @@
+import useAuth from "../../../customHooks/useAuth";
 import Mainpage from "../Presenter";
 
 const MainpageContainer = () => {
-  return <Mainpage />;
+  const loading = useAuth("/home", true);
+
+  return <Mainpage loading={loading} />;
 };
 export default MainpageContainer;

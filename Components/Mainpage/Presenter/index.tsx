@@ -19,15 +19,21 @@ const Footer = dynamic(() => import("./Footer"), {
   loading: () => <Spinner />,
 });
 
-const Mainpage = () => (
+const Mainpage = ({ loading }) => (
   <>
-    <MainWrapper>
-      <HeroImage />
-      <Content />
-    </MainWrapper>
-    <FooterWrapper>
-      <Footer />
-    </FooterWrapper>
+    {!loading ? (
+      <>
+        <MainWrapper>
+          <HeroImage />
+          <Content />
+        </MainWrapper>
+        <FooterWrapper>
+          <Footer />
+        </FooterWrapper>
+      </>
+    ) : (
+      <Spinner />
+    )}
   </>
 );
 
