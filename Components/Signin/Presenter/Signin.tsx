@@ -10,7 +10,7 @@ import { TextField } from "@mui/material";
 import styles from "../../../styles/SigninPage/signin.module.scss";
 import buttonStyles from "../../../styles/Button/button.module.scss";
 
-const Signin = ({ signinState, setSigninState, handleSignin, setAuth }) => (
+const Signin = ({ signinState, setSigninState, handleSignin, router }) => (
   <>
     <Dialog>
       <Dialog.Title>
@@ -78,7 +78,7 @@ const Signin = ({ signinState, setSigninState, handleSignin, setAuth }) => (
           )}
           <div
             className={styles.contentItem}
-            onClick={() => handleSignin(signinState, setSigninState, setAuth)}
+            onClick={() => handleSignin(signinState, setSigninState, router)}
           >
             <Button
               className={`

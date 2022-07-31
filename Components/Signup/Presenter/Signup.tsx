@@ -19,7 +19,7 @@ const Signup = ({
   emailOnChange,
   handleSignup,
   nameOnChange,
-  setAuth,
+  router,
 }) => {
   return (
     <>
@@ -116,7 +116,7 @@ const Signup = ({
                 actions.SET_SERVER_ERROR,
                 state.name,
                 state.email,
-                setAuth
+                router
               )
             }
           >

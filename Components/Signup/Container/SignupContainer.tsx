@@ -1,5 +1,4 @@
-import { useContext, useEffect, useReducer } from "react";
-import { useRouter } from "next/router";
+import { useReducer } from "react";
 
 import Signup from "../Presenter/Signup";
 
@@ -11,7 +10,7 @@ import {
   validInfo,
 } from "../Handlers/signup.handlers";
 import { reducer } from "../Handlers/signup.reducer";
-import { authContext } from "../../../pages/_app";
+import { useRouter } from "next/router";
 
 const SignupContainer = () => {
   const initialState: TsignupFields = {
@@ -27,15 +26,8 @@ const SignupContainer = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { auth, setAuth } = useContext(authContext);
-
   const router = useRouter();
 
-  useEffect(() => {
-    if (auth) {
-      router.push("/home");
-    }
-  });
   return (
     <Signup
       state={state}
@@ -43,7 +35,7 @@ const SignupContainer = () => {
       actions={actions}
       validInfo={validInfo}
       handleSignup={handleSignup}
-      setAuth={setAuth}
+      router={router}
       birthDayDispatch={reducerDecorator(dispatch, actions.SET_BIRTH_DAY)}
       birthMonthDispatch={reducerDecorator(dispatch, actions.SET_BIRTH_MONTH)}
       birthYearDispatch={reducerDecorator(dispatch, actions.SET_BIRTH_YEAR)}

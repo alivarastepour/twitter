@@ -3,11 +3,12 @@ import axios from "axios";
 import { TsigninFields } from "./TsigninFields";
 
 import { HOST } from "../../../public/host";
+import { NextRouter } from "next/router";
 
 export const handleSignin = (
   state: TsigninFields,
   setState: Function,
-  setAuth: Function
+  router: NextRouter
 ): void => {
   let clientError: string = "";
   if (state.email.trim() === "") clientError = "please enter a valid email";
@@ -33,9 +34,10 @@ export const handleSignin = (
       setState((prev) => {
         return { ...prev, serverError: "", clientError: "" };
       });
-      setAuth(true);
+      router.push("/home");
     })
     .catch((err) => {
+      localStorage.setItem("__ut", "");
       let errorMessage: string = err?.response?.data?.errors?.body;
       let errorMessageUI: string =
         errorMessage === "access forbidden"
@@ -44,6 +46,5 @@ export const handleSignin = (
       setState((prev) => {
         return { ...prev, serverError: errorMessageUI };
       });
-      setAuth(false);
     });
 };

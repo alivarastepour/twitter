@@ -4,6 +4,7 @@ import axios from "axios";
 import * as actions from "../Handlers/constants";
 import { TsignupFields } from "./TsignupFields";
 import { HOST } from "../../../public/host";
+import { NextRouter } from "next/router";
 
 export const validInfo = (state: TsignupFields): boolean => {
   return (
@@ -63,7 +64,7 @@ export const handleSignup = (
   type: string,
   username: string,
   email: string,
-  setAuth: Function
+  router: NextRouter
 ): void => {
   const password: string = username + email.split("@")[0];
   const url: string = `${HOST}/users`;
@@ -75,13 +76,13 @@ export const handleSignup = (
     .then((res) => {
       localStorage.setItem("__ut", res.data.user.token);
       dispatch({ type, payload: "" });
-      setAuth(true);
+      router.push("/home");
     })
     .catch((error) => {
+      localStorage.setItem("__ut", "");
       let errorMessage: string =
         error.response?.data?.errors?.body || "failed to create account.";
       dispatch({ type, payload: errorMessage });
-      setAuth(false);
     });
 };
 
