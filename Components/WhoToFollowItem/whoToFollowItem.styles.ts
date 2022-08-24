@@ -21,22 +21,19 @@ export const Wrapper = styled.div`
       font-size: 0.9rem;
       margin-top: 2px;
     }
-    
-    .wf-name{
+
+    .wf-name {
       font-size: 1.1rem;
     }
-
   }
 
   .wf-follow-button {
-
     button {
       border-radius: 15px;
       height: 32px;
       width: 77px;
       cursor: pointer;
     }
-    
   }
 
   &:hover {

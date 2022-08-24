@@ -34,6 +34,6 @@ export const textAreaOnChange = (
   e: ChangeEvent<HTMLTextAreaElement>,
   setTweetText: Function
 ): void => {
-  if (e.target.value.length > 280) e.preventDefault();
-  else setTweetText(e.target.value);
+  if (e.target.innerHTML.length > 280) e.preventDefault();
+  else setTweetText(e.target.innerHTML);
 };

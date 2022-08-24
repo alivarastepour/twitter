@@ -1,4 +1,5 @@
 import Avatar from "@mui/material/Avatar";
+import CustomTextBox from "../../CustomTextBox/CustomTextBox";
 
 import { TtweetInput } from "../Handlers/TtweetInput";
 
@@ -19,14 +20,9 @@ const TweetInput = ({
         </Avatar>
       </div>
       <div>
-        <textarea
-          placeholder={tweetText === "" ? "What's happening?" : ""}
-          className="textArea font font-m"
-          cols={45}
-          value={tweetText}
-          rows={calculateRows}
+        <CustomTextBox
           onChange={textAreaOnChange}
-          onClick={() => setTweetVisibility(true)}
+          onClick={setTweetVisibility}
         />
       </div>
     </Wrapper>
