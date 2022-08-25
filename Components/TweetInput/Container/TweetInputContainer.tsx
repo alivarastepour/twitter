@@ -8,6 +8,7 @@ import {
   calculateRows,
   createShortForm,
   textAreaOnChange,
+  textAreaOnChangeDecorator,
 } from "../Handlers/tweetInputHandlers";
 
 const TweetInputContainer = ({
@@ -18,12 +19,11 @@ const TweetInputContainer = ({
 }: TtweetInputFields) => (
   <TweetInput
     calculateRows={calculateRows(tweetText)}
-    textAreaOnChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-      textAreaOnChange(e, setTweetText)
-    }
+    textAreaOnChange={textAreaOnChangeDecorator}
     shortForm={createShortForm(who)}
     tweetText={tweetText}
     setTweetVisibility={setTweetVisibility}
+    setTweetText={setTweetText}
   />
 );
 

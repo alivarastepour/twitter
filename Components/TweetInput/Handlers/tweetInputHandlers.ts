@@ -37,3 +37,19 @@ export const textAreaOnChange = (
   if (e.target.innerHTML.length > 280) e.preventDefault();
   else setTweetText(e.target.innerHTML);
 };
+
+export const textAreaOnChangeDecorator = (
+  e: ChangeEvent<HTMLTextAreaElement>,
+  setTweetText: Function
+) => {
+  return (target) => {
+    console.log(target);
+    if (e.target.innerHTML.length === 0) {
+      target.style.display = "block";
+    } else {
+      target.style.display = "none";
+    }
+    if (e.target.innerHTML.length > 280) e.preventDefault();
+    else setTweetText(e.target.innerHTML);
+  };
+};

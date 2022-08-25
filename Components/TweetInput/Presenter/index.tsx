@@ -11,7 +11,8 @@ const TweetInput = ({
   shortForm,
   textAreaOnChange,
   calculateRows,
-}: TtweetInput) => (
+  setTweetText,
+}) => (
   <>
     <Wrapper>
       <div>
@@ -23,6 +24,7 @@ const TweetInput = ({
         <CustomTextBox
           onChange={textAreaOnChange}
           onClick={setTweetVisibility}
+          setTweetText={setTweetText}
         />
       </div>
     </Wrapper>
