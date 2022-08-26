@@ -21,35 +21,13 @@ export const createShortForm = (who: string): string => {
   return shortForm.toUpperCase();
 };
 
-export const calculateRows = (tweetText: string): number => {
-  let value = Math.ceil(tweetText.length / 28);
-  // @ts-ignore
-  let enterCounter: number = tweetText.count("\n");
-  value += enterCounter;
-  if (value !== 0) return value;
-  return 1;
-};
-
 export const textAreaOnChange = (
   e: ChangeEvent<HTMLTextAreaElement>,
-  setTweetText: Function
-): void => {
+  setTweetText: Function,
+  target: HTMLElement
+) => {
+  if (e.target.innerHTML.length === 0) target.style.display = "block";
+  else target.style.display = "none";
   if (e.target.innerHTML.length > 280) e.preventDefault();
   else setTweetText(e.target.innerHTML);
-};
-
-export const textAreaOnChangeDecorator = (
-  e: ChangeEvent<HTMLTextAreaElement>,
-  setTweetText: Function
-) => {
-  return (target) => {
-    console.log(target);
-    if (e.target.innerHTML.length === 0) {
-      target.style.display = "block";
-    } else {
-      target.style.display = "none";
-    }
-    if (e.target.innerHTML.length > 280) e.preventDefault();
-    else setTweetText(e.target.innerHTML);
-  };
 };
