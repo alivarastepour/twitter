@@ -20,7 +20,6 @@ const Tweet = ({ who, isModal }: TtweetProps) => {
         <div>
           <TweetInputContainer
             who={who}
-            tweetText={tweetText}
             setTweetText={setTweetText}
             setTweetVisibility={setTweetVisibility}
           />
