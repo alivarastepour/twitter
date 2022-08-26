@@ -1,30 +1,31 @@
-import { useCallback, useRef, useState } from "react";
-import styles from "../../styles/CustomTextBox/customTextBox.module.scss";
+import { useCallback, useRef } from "react";
 
-const CustomTextBox = ({ onChange, onClick, setTweetText }) => {
-  const [placeHolder, setPlaceHolder] = useState("What's happening?");
-  const secondRef = useRef(null);
-  const ref = useCallback((node) => {
+import styles from "../../styles/CustomTextBox/customTextBox.module.scss";
+import { TcustomTextBox } from "./Handlers/TcustomTextBox";
+
+const CustomTextBox = ({ onChange, onClick, setTweetText }: TcustomTextBox) => {
+  const textBoxRefCallback = useCallback((node: HTMLElement) => {
     if (node)
-      node.addEventListener("input", (e) => {
-        onChange(e, setTweetText)(secondRef.current);
+      node.addEventListener("input", (e: InputEvent) => {
+        onChange(e, setTweetText, placeHolderRef.current);
       });
   }, []);
 
+  const placeHolderRef = useRef(null);
+
   return (
-    <div className={styles.textBoxContainer}>
+    <div className={styles.textBoxContainer} onClick={() => onClick(true)}>
       <div
-        contentEditable
-        ref={ref}
-        id="x"
+        contentEditable={true}
+        ref={textBoxRefCallback}
         className={`font font-m ${styles.textBox}`}
       ></div>
       <div
-        className={styles.placeHolder + " font font-m"}
         contentEditable={false}
-        ref={secondRef}
+        ref={placeHolderRef}
+        className={`font font-m ${styles.placeHolder}`}
       >
-        {placeHolder}
+        What's happening?
       </div>
     </div>
   );
