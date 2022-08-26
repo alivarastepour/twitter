@@ -26,7 +26,7 @@ export const textAreaOnChange = (
   setTweetText: Function,
   target: HTMLElement
 ) => {
-  if (e.target.innerHTML.length === 0) target.style.display = "block";
+  if (e.target.innerText.length === 0) target.style.display = "block";
   else target.style.display = "none";
-  setTweetText(e.target.innerHTML);
+  setTweetText(e.target.innerText);
 };

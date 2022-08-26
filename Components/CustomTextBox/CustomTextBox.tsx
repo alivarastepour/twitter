@@ -6,9 +6,9 @@ import { TcustomTextBox } from "./Handlers/TcustomTextBox";
 const CustomTextBox = ({ onChange, onClick, setTweetText }: TcustomTextBox) => {
   const textBoxRefCallback = useCallback((node: HTMLElement) => {
     if (node)
-      node.addEventListener("input", (e: InputEvent) => {
-        onChange(e, setTweetText, placeHolderRef.current);
-      });
+      node.addEventListener("input", (e: InputEvent) =>
+        onChange(e, setTweetText, placeHolderRef.current)
+      );
   }, []);
 
   const placeHolderRef = useRef(null);
