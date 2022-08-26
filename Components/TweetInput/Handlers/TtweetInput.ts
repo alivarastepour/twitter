@@ -1,9 +1,8 @@
 import { ChangeEventHandler } from "react";
 
 export type TtweetInput = {
-  tweetText: string;
   shortForm: string;
-  calculateRows: number;
+  setTweetText: Function;
   setTweetVisibility: Function;
-  textAreaOnChange: ChangeEventHandler<HTMLTextAreaElement>;
+  textAreaOnChange: Function;
 };
