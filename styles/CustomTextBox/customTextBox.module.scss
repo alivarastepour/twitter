@@ -1,31 +1,22 @@
-.hello {
-  position: relative;
-  width: 100%;
+.textBoxContainer {
+  display: grid;
+  grid-template-columns: 0px 1fr;
+  grid-template-rows: auto 1fr;
 }
 .textBox {
-  border: none;
   outline: none;
   font-size: 1.4rem;
-  resize: none;
   margin: 10px 10px auto;
-  height: auto;
-  position: absolute;
-  top: 0;
   z-index: 10;
   width: 500px;
+  grid-area: 1 / 1 / 2 / 2;
 }
 
-.hi {
-  border: none;
-  outline: none;
+.placeHolder {
   font-size: 1.4rem;
-  resize: none;
   margin: 10px 10px auto;
-  height: auto;
-  position: absolute;
-  top: 0;
   z-index: -10;
-  font-size: 1.4rem;
   width: 500px;
   color: rgb(73, 73, 73);
+  font-size: 1.4rem;
 }

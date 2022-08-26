@@ -12,20 +12,15 @@ const CustomTextBox = ({ onChange, onClick, setTweetText }) => {
   }, []);
 
   return (
-    <div className={styles.hello}>
+    <div className={styles.textBoxContainer}>
       <div
         contentEditable
         ref={ref}
         id="x"
         className={`font font-m ${styles.textBox}`}
-        // onClick={() => {
-        //   secondRef.current.style.display = "none";
-        // }}
-      >
-        {/* {"          a       "} */}
-      </div>
+      ></div>
       <div
-        className={styles.hi + " font font-m"}
+        className={styles.placeHolder + " font font-m"}
         contentEditable={false}
         ref={secondRef}
       >
