@@ -25,40 +25,35 @@ export const Wrapper = styled.div`
       outline: none;
       border: none;
       font-size: 1.1rem;
-    }
-
-    .tweetButtonActive {
       cursor: pointer;
-    }
 
-    .tweetButtonDisable {
-      opacity: 0.5;
-      pointer-events: none;
+      &:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
     }
 
     .hiddenSection {
       display: flex;
       align-items: center;
-      .dividerContainer{
+      .dividerContainer {
         margin: auto 10px;
       }
-      
-      .progressbar{
+
+      .progressbar {
         margin-top: 3px;
         margin-right: 10px;
       }
     }
-
   }
-
 `;
 
 export const iconButtonStyles = {
-    '&:hover': {
-        backgroundColor: 'rgb(29,155,240, 0.1)'
-    }
+  "&:hover": {
+    backgroundColor: "rgb(29,155,240, 0.1)",
+  },
 };
 
 export const iconStyles = {
-    color: 'rgb(29, 155, 240)'
+  color: "rgb(29, 155, 240)",
 };
