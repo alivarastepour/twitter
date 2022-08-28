@@ -116,10 +116,7 @@ const Sidebar = ({ tweetModalOpen, setTweetModalOpen, selected, dispatch }) => (
         </ListItem>
       </List>
     </Wrapper>
-    <TweetModal
-      open={tweetModalOpen}
-      onClose={() => setTweetModalOpen(false)}
-    />
+    <TweetModal open={tweetModalOpen} setOpen={setTweetModalOpen} />
   </>
 );
 

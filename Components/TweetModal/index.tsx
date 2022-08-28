@@ -1,18 +1,27 @@
 import Tweet from "../Tweet";
 
-import Modal from "@mui/material/Modal";
-
-import { Wrapper } from "./tweetModal.styles";
+import { InnerContainer, Wrapper } from "./tweetModal.styles";
 
 import { TtweetModal } from "./Handlers/TtweetModal";
 
-const TweetModal = ({ open, onClose }: TtweetModal) => (
+import Modal from "@mui/material/Modal";
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
+
+const TweetModal = ({ open, setOpen }: TtweetModal) => (
   <>
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={() => setOpen(false)}>
       <Wrapper>
-        <div className="tm-container">
-          <Tweet who={"me"} isModal={true} />
-        </div>
+        <InnerContainer>
+          <div className="close-container">
+            <IconButton onClick={() => setOpen(false)}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <div className="tweet-container">
+            <Tweet isModal={true} who={"hi"} />
+          </div>
+        </InnerContainer>
       </Wrapper>
     </Modal>
   </>
