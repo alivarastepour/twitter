@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 
 import List from "@mui/material/List";
@@ -8,6 +6,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { Avatar } from "@mui/material";
 
 import TwitterLogo from "../../Logo/Twitter";
 import TweetModal from "../../TweetModal";
@@ -115,6 +114,23 @@ const Sidebar = ({ tweetModalOpen, setTweetModalOpen, selected, dispatch }) => (
           </button>
         </ListItem>
       </List>
+      <div className="profile-container">
+        <div className="pc-avatar">
+          <Avatar
+            sx={{
+              bgcolor: "violet",
+              width: 55,
+              height: 55,
+            }}
+          >
+            S
+          </Avatar>
+        </div>
+        <div className="font font-b">@alivarastepour</div>
+        <div>
+          <MoreHorizIcon />
+        </div>
+      </div>
     </Wrapper>
     <TweetModal open={tweetModalOpen} setOpen={setTweetModalOpen} />
   </>
