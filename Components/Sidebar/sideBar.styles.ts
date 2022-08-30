@@ -19,6 +19,11 @@ export const Wrapper = styled.div`
       align-items: center;
     }
 
+    .pc-username {
+      font-size: 1.2rem;
+      color: rgb(50, 50, 50);
+    }
+
     &:hover {
       transition: 0.3s;
       background-color: rgb(240, 240, 240);
