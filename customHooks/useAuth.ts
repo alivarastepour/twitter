@@ -12,6 +12,8 @@ const useAuth = (url: string, forwarding: boolean): boolean => {
   const router = useRouter();
 
   useEffect(() => {
+    // function below prevents direct changes made to browser's localstorage
+    // in devTools to cause auth problems and does not have effect if changes are from script
     const storageHandler = (event: StorageEvent): void => {
       if (event.key === "__ut")
         if (event.oldValue !== event.newValue) fireAlert((prev) => !prev);
