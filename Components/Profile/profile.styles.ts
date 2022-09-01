@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   .header-picture {
-    margin-top: 45px;
     height: 200px;
 
     .hp-image {
@@ -52,6 +51,7 @@ export const Wrapper = styled.div`
     }
   }
   .info {
+    margin: 20px;
     .username {
       font-size: 1.7rem;
     }
