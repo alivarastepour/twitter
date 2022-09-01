@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   padding-top: 10px;
-  position: fixed;
+  position: sticky;
+  top: 0;
   backdrop-filter: blur(12px);
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   padding-bottom: 5px;
+  z-index: 2;
   .searchBarContainer {
     display: flex;
     flex-direction: row;
