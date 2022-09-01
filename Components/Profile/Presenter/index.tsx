@@ -4,19 +4,11 @@ import { Tprofile } from "../Handlers/Tprofile";
 import { Wrapper } from "../profile.styles";
 import Image from "next/image";
 import button from "../../../styles/Button/button.module.scss";
+import { toUpper } from "../Handlers/profileHandler";
 const Profile = ({ userInfo }: Tprofile) => {
-  const toUpper = (word: string): string => {
-    let ans: string = "";
-    for (const iterator of word.split(" ")) {
-      ans += iterator[0].toLocaleUpperCase() + iterator.slice(1) + " ";
-    }
-    return ans;
-  };
-  console.log(toUpper("ali varaste pour"));
-
   return (
     <>
-      <GlobalHeader content={userInfo?.username} />
+      <GlobalHeader content={toUpper(userInfo?.username)} />
       <Wrapper>
         <div className="header-picture">
           <Image
