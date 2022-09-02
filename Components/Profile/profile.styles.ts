@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  border: 1px solid rgb(239, 243, 244);
   .header-picture {
     height: 200px;
 
@@ -34,7 +35,7 @@ export const Wrapper = styled.div`
   }
 
   .edit-profile {
-    margin-top: -60px;
+    margin: -60px 20px;
     float: right;
     border: 1px rgb(207, 217, 222) solid;
     border-radius: 30px;
@@ -57,6 +58,22 @@ export const Wrapper = styled.div`
     }
     .username-footer {
       color: rgb(83, 100, 113);
+    }
+    .stats {
+      margin-top: 30px;
+      width: 35%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      .st-container {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline 1px solid black;
+        }
+      }
+      .indicator {
+        color: rgb(83, 100, 113);
+      }
     }
   }
 `;

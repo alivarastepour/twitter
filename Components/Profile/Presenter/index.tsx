@@ -40,6 +40,20 @@ const Profile = ({ userInfo }: Tprofile) => {
           <div className="username-footer font font-m">
             {"@" + userInfo?.username.replaceAll(" ", "")}
           </div>
+          <div className="stats">
+            <div className="st-container font">
+              <span className="font-sb">
+                {Math.floor(Math.random() * 10) + "  "}
+              </span>
+              <span className="indicator">Following</span>
+            </div>
+            <div className="st-container font">
+              <span className="font-sb">
+                {Math.floor(Math.random() * 10) + "  "}
+              </span>
+              <span className="indicator">Follower</span>
+            </div>
+          </div>
         </div>
       </Wrapper>
     </>
