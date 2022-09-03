@@ -5,7 +5,11 @@ import { Wrapper } from "../profile.styles";
 import Image from "next/image";
 import button from "../../../styles/Button/button.module.scss";
 import { toUpper } from "../Handlers/profileHandler";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+const EditProfile = dynamic(() => import("../../EditProfile"));
 const Profile = ({ userInfo }: Tprofile) => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <GlobalHeader content={toUpper(userInfo?.username)} />
@@ -30,9 +34,13 @@ const Profile = ({ userInfo }: Tprofile) => {
             </Avatar>
           </div>
         </div>
-        <div className={`edit-profile ${button.whiteButton} font font-eb`}>
+        <div
+          className={`edit-profile ${button.whiteButton} font font-eb`}
+          onClick={() => setOpen(true)}
+        >
           Edit profile
         </div>
+        {open && <EditProfile open={open} setOpen={setOpen} />}
         <div className="info">
           <div className="username font font-eb">
             {toUpper(userInfo?.username)}
