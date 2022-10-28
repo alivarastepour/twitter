@@ -1,5 +1,5 @@
 # Twitter clone
-front-end implementation of Twitter social media. not all features are yet included.
+front-end implementation of Twitter social media. not all features are yet included as the project is a ongoing process.
 
 ## technologies
 nextjs is the main tool used in this project. typescript is the main used language. MUI ans SCSS are used for styling.
