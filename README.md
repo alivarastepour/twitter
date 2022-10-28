@@ -22,3 +22,12 @@ go build
 ./twitter-backend // on mac, linux
 twitter-backend.exe // on windows
 ```
+
+## at glance
+
+![Screenshot (35)](https://user-images.githubusercontent.com/81034797/198565476-35f48a9a-d89f-462b-bca3-1cbe7b9654ec.png)
+![Screenshot (36)](https://user-images.githubusercontent.com/81034797/198565493-51b5b7c0-fda6-41f9-9593-1581c563f9d7.png)
+![Screenshot (37)](https://user-images.githubusercontent.com/81034797/198565501-25d942c8-b2ba-411b-ba7f-f7159dffa5ff.png)
+![Screenshot (38)](https://user-images.githubusercontent.com/81034797/198565509-3fa860a3-60d2-4ab6-bb04-36a59df7d97f.png)
+![Screenshot (39)](https://user-images.githubusercontent.com/81034797/198565565-a8ee3e3e-005b-4cb4-925c-8c8c3d458ec5.png)
+
